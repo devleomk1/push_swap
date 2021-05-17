@@ -6,12 +6,19 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/16 17:29:57 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/17 21:46:45 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char **argv)
+void	push_swap(void)
 {
 
+}
+
+int	main(int argc, char **argv)
+{
+	if(argc < 2)
+		return (1);
+	push_swap();
 	return (0);
 }
