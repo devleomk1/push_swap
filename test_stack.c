@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 12:31:59 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/19 17:19:12 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/21 16:30:33 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct		s_list
 {
 	void			*content;
 	struct s_list	*next;
+	struct s_list	*pre;
 }					t_list;
 
 t_list	*ft_lstnew(void *content)
@@ -30,6 +31,7 @@ t_list	*ft_lstnew(void *content)
 		return (NULL);
 	new->content = content;
 	new->next = NULL;
+	new->pre = NULL;
 	return (new);
 }
 
@@ -38,6 +40,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	if (lst == NULL || new == NULL)
 		return ;
 	new->next = *lst;
+	new->pre = NULL;
 	*lst = new;
 }
 
