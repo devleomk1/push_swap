@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 12:31:59 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/24 15:34:00 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/24 20:30:07 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,16 @@ t_list	*ft_lstnew(void *content)
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_list	*tmp;
-
 	if (lst == NULL || new == NULL)
 		return ;
-	tmp = *lst;
+	if (*lst)
+	{
+		new->next = *lst;
+		(*lst)->prev = new;
+	}
+	else
+		new->next = NULL;
 	new->prev = NULL;
-	new->next = tmp;
-	tmp->prev = new;
 	*lst = new;
 }
 
@@ -79,18 +81,18 @@ int	main(int argc, char **argv)
 	printf("Stack A\n");
 	while (curr != NULL)
 	{
-		printf("|%s|>", curr->content);
-		curr = curr->next;
-	}
-	printf("|---|\n\n");
-	curr = stack_a;
-	pop = ft_lstpop(&curr);
-	printf("POP! : %s\n\n", pop->content);
-	while (curr != NULL)
-	{
 		printf("|%3s|\n", curr->content);
 		curr = curr->next;
 	}
 	printf("|---|\n\n");
+	curr = stack_a;
+	//pop = ft_lstpop(&curr);
+	//printf("POP! : %s\n\n", pop->content);
+	//while (curr != NULL)
+	//{
+	//	printf("|%3s|\n", curr->content);
+	//	curr = curr->next;
+	//}
+	//printf("|---|\n\n");
 	return (0);
 }
