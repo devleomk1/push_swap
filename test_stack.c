@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 12:31:59 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/24 20:30:07 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/25 02:14:34 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_list	*ft_lstnew(void *content)
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+
 	if (lst == NULL || new == NULL)
 		return ;
 	if (*lst)
@@ -60,6 +61,33 @@ t_list	*ft_lstpop(t_list **lst)
 	*lst = tmp->next;
 	tmp->next = NULL;
 	return (tmp);
+}
+
+void	*ft_swap_a(t_list **stack_a)
+{
+	void *tmp;
+
+	if(stack_a == NULL || (*stack_a)->next == NULL)
+		return (NULL);
+	tmp = (*stack_a)->content;
+	//printf("s_a->con : %s\n", (*stack_a)->content);
+	//printf("s_a->nex->con : %s\n", (*stack_a)->next->content);
+	(*stack_a)->content = (*stack_a)->next->content;
+	(*stack_a)->next->content = tmp;
+}
+void	*ft_swap_a2(t_list **stack_a)
+{
+	t_list *tmp;
+
+	if(stack_a == NULL)
+		return (NULL);
+	if ((*stack_a)->next == NULL)
+		return (NULL);
+	tmp = (*stack_a)->content;
+	//printf("s_a->con : %s\n", (*stack_a)->content);
+	//printf("s_a->nex->con : %s\n", (*stack_a)->next->content);
+	(*stack_a)->content = (*stack_a)->next->content;
+	(*stack_a)->next->content = tmp;
 }
 
 int	main(int argc, char **argv)
@@ -86,6 +114,14 @@ int	main(int argc, char **argv)
 	}
 	printf("|---|\n\n");
 	curr = stack_a;
+	ft_swap_a(&stack_a);
+	while (curr != NULL)
+	{
+		printf("|%3s|\n", curr->content);
+		curr = curr->next;
+	}
+	printf("|---|\n\n");
+	//curr = stack_a;
 	//pop = ft_lstpop(&curr);
 	//printf("POP! : %s\n\n", pop->content);
 	//while (curr != NULL)
