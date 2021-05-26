@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   op_rev_rotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/19 14:04:08 by jisokang         ###   ########.fr       */
+/*   Created: 2021/05/26 18:09:27 by jisokang          #+#    #+#             */
+/*   Updated: 2021/05/26 19:38:22 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+void	*rev_rotate_a()
+{
 
-# include "./libft/libft.h"
+}
 
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	*rev_rotate_b()
+{
 
-# endif
+}
+
+void	*rev_rotate_rotate()
+{
+
+}

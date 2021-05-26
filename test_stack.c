@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 12:31:59 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/25 02:14:34 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/25 15:37:17 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,12 @@ t_list	*ft_lstnew(void *content)
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 
-	if (lst == NULL || new == NULL)
-		return ;
+	// '*' : ~가 가르킨 값
+	// '&' : ~의 주소
+	// **lst
+	//  *lst
+	if (lst == NULL || new == NULL)	//lst의 Top Node가 NULL || new Node가 NULL 이면
+		return ;					//함수 종료
 	if (*lst)
 	{
 		new->next = *lst;

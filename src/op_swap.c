@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   op_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/17 21:46:45 by jisokang         ###   ########.fr       */
+/*   Created: 2021/05/26 18:06:57 by jisokang          #+#    #+#             */
+/*   Updated: 2021/05/26 19:37:20 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	push_swap(void)
+#include "../includes/push_swap.h"
+
+void	*swap_a()
 {
 
 }
 
-int	main(int argc, char **argv)
+void	*swap_b()
 {
-	if(argc < 2)
-		return (1);
-	push_swap();
-	return (0);
+
+}
+
+void	*swap_swap()
+{
+
 }
