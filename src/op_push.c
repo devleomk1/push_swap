@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:08:26 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/26 20:16:08 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/26 20:24:39 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ nothing if b is empty.
 */
 void	*push_a()
 {
-	push(stack_b, stack_a);
+	push(b, a);
 }
 
 void	*push_b()
 {
-
+	push(a, b);
 }
 
