@@ -6,21 +6,21 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:09:03 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/26 19:37:29 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/28 15:34:00 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*rotate_a()
+void	op_ra()
 {
 
 }
 
-void	*rotate_b()
+void	op_rb()
 {
 
 }
 
-void	*rotate_rotate()
+void	op_rr()
 {
 
 }

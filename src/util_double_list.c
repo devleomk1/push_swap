@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_double_list.c                                   :+:      :+:    :+:   */
+/*   util_double_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/26 17:28:46 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/29 14:01:22 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_dlst	*ft_dlst_new(void *content)
+/**
+ * int value를 데이터로 갖는
+ * 새로운 Double 연결 리스트 노드 생성
+ * new 노드가 자기 자신을 가리켜야 예외처리 하기가 쉽다.
+ */
+t_dlst	*dlst_new(int value)
 {
 	t_dlst	*new;
 
 	new = (t_dlst *)malloc(sizeof(t_dlst));
 	if (new == NULL)
 		return (NULL);
-	new->content = content;
+	new->value = value;
 	new->prev = new;
 	new->next = new;
 	return (new);
 }
-/*
-new 노드가 자기 자신을 가리켜야 예외처리 하기가 쉽다.
-*/
 
-void	ft_dlst_add_front(t_dlst **lst, t_dlst *new)
+/**
+ * *lst head 앞에 새 노드 *new를 추가하고
+ * head를 *new로 변경하는 함수
+ */
+void	dlst_add_front(t_dlst **lst, t_dlst *new)
 {
-	if (lst == NULL || new == NULL)	//lst의 Top Node가 NULL || new Node가 NULL 이면
-		return ;					//함수 종료
+	if (new == NULL)
+		return ;
 	if (*lst)
 	{
 		new->prev = (*lst)->prev;	//서순 조심
@@ -42,9 +48,13 @@ void	ft_dlst_add_front(t_dlst **lst, t_dlst *new)
 	*lst = new;
 }
 
-void	ft_dlst_add_back(t_dlst **lst, t_dlst *new)
+/**
+ * *lst tail 뒤에 새 노드 *new를 추가하는 함수
+ * *lst가 없으면 *new를 lst의 head로 준다.
+ */
+void	dlst_add_back(t_dlst **lst, t_dlst *new)
 {
-	if (lst == NULL || new == NULL)	//lst의 Top Node가 NULL || new Node가 NULL 이면
+	if (new == NULL)
 		return ;
 	if (*lst)
 	{
@@ -58,14 +68,13 @@ void	ft_dlst_add_back(t_dlst **lst, t_dlst *new)
 
 }
 
-t_dlst	*ft_dlst_pop(t_dlst **lst)
+t_dlst	*dlst_pop(t_dlst **lst)
 {
 	t_dlst *tmp;
 
 	if (lst == NULL)
 		return ;
 	//head가 나가고 *lst->next랑 tail이랑 연결
-	//lst->next = lst;
 	tmp = *lst;
 	*lst = tmp->next;
 	tmp->next = tmp;
@@ -76,7 +85,10 @@ t_dlst	*ft_dlst_pop(t_dlst **lst)
 	return (tmp);
 }
 
-int	ft_dlst_size(t_dlst *lst)
+/**
+ * 원형 연결 리스트의 길이를 구하는 함수.
+ */
+int	dlst_size(t_dlst *lst)
 {
 	int		i;
 	t_dlst	*curr;
@@ -96,11 +108,44 @@ int	ft_dlst_size(t_dlst *lst)
 }
 
 /* [BEFORE] -> [NEW] -> [AFTER] */
-void	ft_dlst_insert(t_dlst *before, t_dlst *new)
+void	dlst_insert(t_dlst *before, t_dlst *new)
 {
 	//AFTER == before->next
 	new->prev = before;
 	new->next = before->next;
 	before->next->prev = new;
 	before->next = new;
+}
+
+
+/**
+ * list_rotate_left - rotate the list to the left
+ * @head: the head of the list
+ */
+static inline void list_rotate_left(struct list_head *head)
+{
+	struct list_head *first;
+
+	if (!list_empty(head)) {
+		first = head->next;
+		list_move_tail(first, head);
+	}
+}
+
+/**
+ * list_rotate_to_front() - Rotate list to specific item.
+ * @list: The desired new front of the list.
+ * @head: The head of the list.
+ *
+ * Rotates list so that @list becomes the new front of the list.
+ */
+static inline void list_rotate_to_front(struct list_head *list,
+					struct list_head *head)
+{
+	/*
+	 * Deletes the list head from the list denoted by @head and
+	 * places it as the tail of @list, this effectively rotates the
+	 * list so that @list is at the front.
+	 */
+	list_move_tail(head, list);
 }

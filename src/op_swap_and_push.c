@@ -1,28 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_swap.c                                          :+:      :+:    :+:   */
+/*   op_swap_and_push.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/26 18:06:57 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/26 19:37:20 by jisokang         ###   ########.fr       */
+/*   Created: 2021/05/28 15:30:55 by jisokang          #+#    #+#             */
+/*   Updated: 2021/05/28 15:32:01 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "../includes/push_swap.h"
 
-void	*swap_a()
+void	op_sa(t_stack *a, t_stack *b)
 {
-
+	//swap(a)
+	printf("sa\n");
 }
 
-void	*swap_b()
+void	op_sb(t_stack *a, t_stack *b)
 {
-
+	//swap(b)
+	printf("sb\n");
 }
 
-void	*swap_swap()
+void	op_ss(t_stack *a, t_stack *b)
 {
-
+	//swap(a)
+	//swap(b)
+	printf("ss\n");
 }
+
+void	op_pa(t_stack *a, t_stack *b)
+{
+	//push(a)
+	printf("pa\n");
+}
+
+void	op_pb(t_stack *a, t_stack *b)
+{
+	//push(b)
+	printf("pb\n");
+}
+

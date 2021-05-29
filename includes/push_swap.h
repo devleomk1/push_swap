@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/26 19:48:39 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/28 15:05:48 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,18 @@
 
 typedef struct		s_dlst
 {
-	void			*content;
+	int				value;
 	struct s_dlst	*prev;
 	struct s_dlst	*next;
 }					t_dlst;
 
-t_dlst	*ft_dlst_new(void *content);
+typedef struct		s_stack
+{
+	t_dlst	*head;
+	t_dlst	*tail;
+}					t_stack;
+
+t_dlst	*ft_dlst_new(int value);
 void	ft_dlst_add_front(t_dlst **lst, t_dlst *new);
 void	ft_dlst_add_back(t_dlst **lst, t_dlst *new);
 t_dlst	*ft_dlst_pop(t_dlst **lst);
