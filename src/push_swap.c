@@ -6,12 +6,31 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/26 00:23:19 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/29 21:34:51 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+void	print_stack(t_stack *stack)
+{
+	int		i = 0;
+	t_dlst	*curr;
+	if (stack->head == NULL)
+	{
+		printf("|---|\n");
+	}
+
+	curr = stack->head;
+	while (i < dlst_size(stack->head))
+	{
+		printf("|%3d|\n", curr->value);
+		curr = curr->next;
+		i++;
+		if (i == dlst_size(stack->head))
+			printf("|---|\n");
+	}
+}
 
 void	push_swap(void)
 {
@@ -21,30 +40,16 @@ void	push_swap(void)
 int	main(int argc, char **argv)
 {
 	int		i;
-	int		len;
-	t_dlst	*curr;
-	t_dlst	*circular;
+	t_stack	stk_a;
+	t_stack	stk_b;
 
 	if (argc < 2)
 		return (0);
+	init_stack(&stk_b);
 	i = 1;
 	while (argv[i] != NULL)
-	{
-		//ft_dlst_add_front(&circular, ft_dlst_new(argv[i]));
-		ft_dlst_add_back(&circular, ft_dlst_new(argv[i]));
-		i++;
-	}
-	len = ft_dlst_size(circular);
-	printf("List len = %d\n\n", len);
-	curr = circular;
-	i = 0;
-	while (i < 10)
-	{
-		printf("|%s|->", curr->content);
-		curr = curr->next;
-		i++;
-	}
-
-
+		push_new(&stk_a, ft_atoi(argv[i++]));
+	print_stack(&stk_a);
+	print_stack(&stk_b);
 	return (0);
 }

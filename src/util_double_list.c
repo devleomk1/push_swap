@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/29 14:01:22 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/29 20:46:39 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ t_dlst	*dlst_new(int value)
 
 	new = (t_dlst *)malloc(sizeof(t_dlst));
 	if (new == NULL)
+	{
+		printf("MALLOC_ERROR\n");
 		return (NULL);
+	}
 	new->value = value;
 	new->prev = new;
 	new->next = new;
@@ -37,7 +40,10 @@ t_dlst	*dlst_new(int value)
 void	dlst_add_front(t_dlst **lst, t_dlst *new)
 {
 	if (new == NULL)
+	{
+		printf("NULL_ERROR_dlst_add_front\n");
 		return ;
+	}
 	if (*lst)
 	{
 		new->prev = (*lst)->prev;	//서순 조심
@@ -73,7 +79,7 @@ t_dlst	*dlst_pop(t_dlst **lst)
 	t_dlst *tmp;
 
 	if (lst == NULL)
-		return ;
+		return (NULL);
 	//head가 나가고 *lst->next랑 tail이랑 연결
 	tmp = *lst;
 	*lst = tmp->next;
@@ -103,8 +109,6 @@ int	dlst_size(t_dlst *lst)
 		i++;
 	}
 	return (i);
-
-
 }
 
 /* [BEFORE] -> [NEW] -> [AFTER] */
@@ -115,37 +119,4 @@ void	dlst_insert(t_dlst *before, t_dlst *new)
 	new->next = before->next;
 	before->next->prev = new;
 	before->next = new;
-}
-
-
-/**
- * list_rotate_left - rotate the list to the left
- * @head: the head of the list
- */
-static inline void list_rotate_left(struct list_head *head)
-{
-	struct list_head *first;
-
-	if (!list_empty(head)) {
-		first = head->next;
-		list_move_tail(first, head);
-	}
-}
-
-/**
- * list_rotate_to_front() - Rotate list to specific item.
- * @list: The desired new front of the list.
- * @head: The head of the list.
- *
- * Rotates list so that @list becomes the new front of the list.
- */
-static inline void list_rotate_to_front(struct list_head *list,
-					struct list_head *head)
-{
-	/*
-	 * Deletes the list head from the list denoted by @head and
-	 * places it as the tail of @list, this effectively rotates the
-	 * list so that @list is at the front.
-	 */
-	list_move_tail(head, list);
 }
