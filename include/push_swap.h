@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/30 16:31:21 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/30 18:20:11 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,13 @@ void	rotate_stack(t_stack *stack);
  */
 int		ft_atoi(const char *str);
 
-void	op_sa(t_stack *a, t_stack *b);
-void	op_sb(t_stack *a, t_stack *b);
+void	op_sa(t_stack *a);
+void	op_sb(t_stack *b);
 void	op_ss(t_stack *a, t_stack *b);
 void	op_pa(t_stack *a, t_stack *b);
 void	op_pb(t_stack *a, t_stack *b);
 
-void	op_ra(t_stack *a, t_stack *b);
+void	op_ra(t_stack *a);
+void	op_rb(t_stack *b);
 
 # endif

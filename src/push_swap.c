@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/30 17:54:14 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/30 18:13:24 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 	print_stack(&stk_b);
 
 	//---------------------
-	op_ra(&stk_a, &stk_b);
+	op_ra(&stk_a);
 	print_stack(&stk_a);
 	printf("\n\n");
 	print_stack(&stk_b);

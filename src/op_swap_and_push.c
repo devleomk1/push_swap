@@ -6,19 +6,19 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:30:55 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/30 16:23:24 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/30 18:10:54 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	op_sa(t_stack *a, t_stack *b)
+void	op_sa(t_stack *a)
 {
 	swap_stack(a);
 	printf("sa\n");
 }
 
-void	op_sb(t_stack *a, t_stack *b)
+void	op_sb(t_stack *b)
 {
 	swap_stack(b);
 	printf("sb\n");
