@@ -6,11 +6,11 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:05:37 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/29 21:32:48 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/30 22:26:28 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../include/push_swap.h"
 
 void	init_stack(t_stack *stack)
 {

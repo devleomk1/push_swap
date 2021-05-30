@@ -6,11 +6,11 @@
 #    By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 17:24:47 by jisokang          #+#    #+#              #
-#    Updated: 2021/05/30 18:21:19 by jisokang         ###   ########.fr        #
+#    Updated: 2021/05/30 23:04:33 by jisokang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	push_swap.a
+NAME	=	push_swap
 
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
@@ -20,20 +20,26 @@ RM		=	rm -f
 INCS_DIR	=	./include/
 SRCS_DIR	=	./src/
 
-SRCS	=	push_swap.c \
+SRC		=	push_swap.c \
 			util_double_list.c \
 			util_stack.c \
 			util.c \
 			op_swap_and_push.c \
 			op_rotate.c
 
+SRCS	= $(addprefix $(SRCS_DIR),$(SRC))
 OBJS	= $(SRCS:.c=.o)
 
 .c.o:
-	$(CC) $(CFLAGS) -c $< -I.
+	$(CC) $(CFLAGS) -I $(INCS_DIR) -o $@ -c $?
+#	$(CC) $(CFLAGS) -c $< -I $(INCS_DIR)
+# gcc option
+# -c 		: 오브젝트 파일 생성
+# -I <dir>	: 참조할 헤더파일의 주소를 추가
+# -o		: 실행파일을 만든다.
 
 $(NAME) : $(OBJS)
-	$(AR) $@ $?
+	$(CC) -o $(NAME) $(OBJS) -I $(INCS_DIR)
 
 bonus :
 
