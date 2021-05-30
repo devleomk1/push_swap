@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/29 21:34:51 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/30 17:54:14 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	print_stack(t_stack *stack)
 	{
 		printf("|---|\n");
 	}
-
 	curr = stack->head;
 	while (i < dlst_size(stack->head))
 	{
@@ -36,6 +35,7 @@ void	push_swap(void)
 {
 
 }
+//피봇을 찾기 위해 우선 정렬을 해야한다.
 
 int	main(int argc, char **argv)
 {
@@ -50,6 +50,19 @@ int	main(int argc, char **argv)
 	while (argv[i] != NULL)
 		push_new(&stk_a, ft_atoi(argv[i++]));
 	print_stack(&stk_a);
+	printf("\n\n");
+	print_stack(&stk_b);
+
+	//---------------------
+	op_ra(&stk_a, &stk_b);
+	print_stack(&stk_a);
+	printf("\n\n");
+	print_stack(&stk_b);
+
+	//---------------------
+	op_pb(&stk_a, &stk_b);
+	print_stack(&stk_a);
+	printf("\n\n");
 	print_stack(&stk_b);
 	return (0);
 }

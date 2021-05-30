@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/29 21:11:07 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/30 16:31:21 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void	dlst_add_back(t_dlst **lst, t_dlst *new);
 t_dlst	*dlst_pop(t_dlst **lst);
 int		dlst_size(t_dlst *lst);
 void	dlst_insert(t_dlst *before, t_dlst *new);
+
 /**
  * util_stack.c
  */
@@ -49,10 +50,19 @@ void	push(t_stack *stack, t_dlst *new);
 t_dlst	*pop_stack(t_stack *stack);
 void	push_stack(t_stack *src, t_stack *dst);
 void	swap_stack(t_stack *stack);
+void	rotate_stack(t_stack *stack);
 
 /**
  * util.c
  */
 int		ft_atoi(const char *str);
+
+void	op_sa(t_stack *a, t_stack *b);
+void	op_sb(t_stack *a, t_stack *b);
+void	op_ss(t_stack *a, t_stack *b);
+void	op_pa(t_stack *a, t_stack *b);
+void	op_pb(t_stack *a, t_stack *b);
+
+void	op_ra(t_stack *a, t_stack *b);
 
 # endif
