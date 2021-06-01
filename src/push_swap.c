@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/30 22:23:58 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/05/31 17:42:01 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_stack(t_stack *stack)
 	curr = stack->head;
 	while (i < dlst_size(stack->head))
 	{
-		printf("|%3d|\n", curr->value);
+		printf("[%3d]\n", curr->value);
 		curr = curr->next;
 		i++;
 		if (i == dlst_size(stack->head))
@@ -35,7 +35,7 @@ void	push_swap(void)
 {
 
 }
-//피봇을 찾기 위해 우선 정렬을 해야한다.
+//최적 피봇을 찾기 위해 우선 정렬을 해야한다.
 
 int	main(int argc, char **argv)
 {
