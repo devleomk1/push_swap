@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 12:31:59 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/28 15:19:37 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/02 17:07:19 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,35 +135,4 @@ int	main(int argc, char **argv)
 	//}
 	//printf("|---|\n\n");
 	return (0);
-}
-
-void	remove_list_entry_0(entry)
-{
-	prev = NULL;
-	walk = head;
-
-	while (walk != entry)
-	{
-		prev = walk;
-		walk = walk->next;
-	}
-	if (!prev)
-		head = entry->next;
-	else
-		prev->next = entry->next;
-}
-
-void	remove_list_entry_1(entry)
-{
-	// The "indircet" pointer points to the
-	// *address* of the thing we'll update
-	indirect = &head;
-
-	// Walk the list, looking for the thing that
-	// points to the entry we want to remove
-	while ((*indirect) != entry)
-		indirect = &(*indirct)->next;
-
-	// .. and just remove it
-	*indirect = entry->next;
 }

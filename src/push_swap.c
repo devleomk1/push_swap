@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/31 17:42:01 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/02 20:39:45 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,36 @@ void	print_stack(t_stack *stack)
 	curr = stack->head;
 	while (i < dlst_size(stack->head))
 	{
-		printf("[%3d]\n", curr->value);
+		printf("%d[%2d]\n", i, curr->value);
 		curr = curr->next;
 		i++;
 		if (i == dlst_size(stack->head))
 			printf("|---|\n");
 	}
+}
+
+void	print_2_stack(t_stack *stk1, t_stack *stk2)
+{
+	printf("STACK A\n");
+	print_stack(stk1);
+	printf("\n\n");
+	printf("STACK B\n");
+	print_stack(stk2);
+	printf("\n");
+}
+
+void	swap_dlst_xy(t_stack *stack, size_t x, size_t y)
+{
+	t_dlst	*lst_x;
+	t_dlst	*lst_y;
+	if (stack == NULL || x == y)
+		return ;
+	lst_x = dlst_count(stack->head, x);
+	printf("lst_x->data : %d\n", lst_x->value);
+	lst_y = dlst_count(stack->head, y);
+	printf("lst_y->data : %d\n", lst_y->value);
+	dlst_node_swap(lst_x, lst_y);
+	printf("stack의 %zu번째 노드와 %zu번째 노드를 swap했습니다.\n", x, y);
 }
 
 void	push_swap(void)
@@ -49,20 +73,15 @@ int	main(int argc, char **argv)
 	i = 1;
 	while (argv[i] != NULL)
 		push_new(&stk_a, ft_atoi(argv[i++]));
-	print_stack(&stk_a);
-	printf("\n\n");
-	print_stack(&stk_b);
+	print_2_stack(&stk_a, &stk_b);
 
-	//---------------------
-	op_ra(&stk_a);
-	print_stack(&stk_a);
-	printf("\n\n");
-	print_stack(&stk_b);
+	// op_ra(&stk_a);
+	// print_2_stack(&stk_a, &stk_b);
+	// op_pb(&stk_a, &stk_b);
+	// print_2_stack(&stk_a, &stk_b);
 
-	//---------------------
-	op_pb(&stk_a, &stk_b);
-	print_stack(&stk_a);
-	printf("\n\n");
-	print_stack(&stk_b);
+	swap_dlst_xy(&stk_a, 2, 5);
+	print_2_stack(&stk_a, &stk_b);
+
 	return (0);
 }
