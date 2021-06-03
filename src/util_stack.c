@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:05:37 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/30 22:26:28 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/03 15:48:05 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,8 @@ void	push_stack(t_stack *src, t_stack *dst)
 
 void	swap_stack(t_stack *stack)
 {
-	int	tmp;
-
 	if(stack->head != NULL)
-	{
-		tmp = stack->head->value;
-		stack->head->value = stack->head->next->value;
-		stack->head->next->value = tmp;
-	}
+		dlst_ndoe_swap_next(&stack->head);
 }
 
 void	rotate_stack(t_stack *stack)

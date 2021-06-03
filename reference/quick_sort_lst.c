@@ -1,83 +1,117 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   quick_sort_lst.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/03 16:07:11 by jisokang          #+#    #+#             */
+/*   Updated: 2021/06/03 16:13:31 by jisokang         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
-void sort_quick(int mode, struct D_NODE *left, struct D_NODE *right )
+typedef struct DNODE {
+	int val;
+	struct DNODE *prev, *next;
+}DNODE;
+
+void freelist(DNODE *head)
 {
-	// key_node : pivot를 나타냄, right값을 가짐.
-	// 링크드리스트이기때문에 배열과 같이 index를 나타내는 부분이 없음.
-	// -> 그래서 nleft, nright, nTotal 값으로 index를 check.
-	// 해당 index는 list_count() 함수로 구함.
+	DNODE *next;
+	while (head) {
+		next = head->next;
+		free(head);
+		head = next;
+	}
+}
 
-	struct D_NODE *Key_node, *left_node, *right_node;
-	int nleft=1,nright, nTotal;
+void printlist(DNODE *head)
+{
+	printf("Qsort: ");
+	while (head) {
+		printf("%d ", head->val);
+		head = head->next;
+	}puts("");
+}
 
-	nTotal = list_count(right,left,right);
-	nright = nTotal-1;
+void mySwap(int *a, int *b) {
+	int tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 
-	// 정렬 해야되는 노드 수가 1개일경우 재귀함수 종료
-	if(nright <= 0)	return;
+void goQuickSort(DNODE *head, DNODE *tail, int left, int right) {
+	if (left >= right) return;
+	int L = left;
+	int R = right + 1;
+	DNODE* Lnode = head;
+	DNODE* Lprev = head->prev;
+	DNODE* Rnode = tail;
+	DNODE* Rnext = tail->next;
+	DNODE* dump = (DNODE*)malloc(sizeof(DNODE));
+	Rnode->next = dump;
+	dump->prev = Rnode;
+	Rnode = Rnode->next;
+	while (L < R) {
+		do {
+			L++;
+			Lnode = Lnode->next;
+		} while (L <= right && Lnode->val < head->val);
+		do {
+			R--;
+			Rnode = Rnode->prev;
+		} while (R > left && Rnode->val > head->val);
+		if (L < R) mySwap(&Lnode->val, &Rnode->val);
+	}
+	mySwap(&head->val, &Rnode->val);
+	free(dump);
+	tail->next = Rnext;
 
-	Key_node =  right;
-	left_node = left;
-	right_node = right->list.pre_node;
+	goQuickSort(head, Rnode->prev, left, R - 1);
+	goQuickSort(Rnode->next, tail, R + 1, right);
+}
 
-	while(1)
-	{
-		//mode 1 : 오름차순 정렬
-		//mode 2 : 내림차순 정렬
-		if(mode ==1)
-		{
-			// key값을 기준으로 left 값과 right값 비교하면서 이동
-			while( left_node->number < Key_node->number)
-			{
-				left_node = left_node->list.next_node;
-				nleft++;
+DNODE *quicksort_list(DNODE *head, DNODE *tail, int size)
+{
+	goQuickSort(head, tail, 0, size - 1);
+	return head;
+}
+
+int main()
+{
+	int i, N;
+	int val;
+	DNODE *head, *tail, *cur;
+
+	printf("N? ");
+	scanf("%d", &N);
+
+	head = tail = NULL;
+	for (i = 0; i<N; i++) {
+		if (scanf("%d", &val) != 1) {
+			printf("잘못된 값.\n");
+			freelist(head);
+			exit(0);
+		}
+		else {
+			cur = (DNODE*) malloc(sizeof(DNODE));
+			cur->val = val;
+			cur->next = NULL;
+			if (!head) {
+				cur->prev = NULL;
+				head = tail = cur;
 			}
-			while( right_node->number > Key_node->number)
-			{
-				if(nright <=1 || right_node->list.pre_node ==NULL )
-					break;
-				right_node = right_node->list.pre_node;
-				nright--;
-			}
-		}else if(mode== 2)
-		{
-			while( left_node->number > Key_node->number)
-			{
-				left_node = left_node->list.next_node;
-				nleft++;
-			}
-			while( right_node->number < Key_node->number)
-			{
-				if(nright <=1 || right_node->list.pre_node ==NULL )
-					break;
-				right_node = right_node->list.pre_node;
-				nright--;
+			else {
+				tail->next = cur; cur->prev = tail;
+				tail = cur;
 			}
 		}
-
-		// while 종료 조건
-		if(nleft >= nright)
-			break;
-		// 정렬
-		swap_node(left_node, right_node);
-
-		left_node = left_node->list.next_node;
-		nleft++;
-		right_node = right_node->list.pre_node;
-		nright--;
 	}
+	head = quicksort_list(head, tail, N);
+	printlist(head);
+	freelist(head);
 
-	// 기준이 되는 key을 변경
-	swap_node(Key_node, left_node);
-
-	// key(pivot) 값을 기준으로 왼쪽 리스트 정렬시 재귀
-	if(left_node->list.pre_node != NULL && nleft-1 > 0)
-		if(left_node->list.next_node != left && left->list.pre_node !=left_node)
-			sort_quick(mode, left, left_node->list.pre_node);
-
-	// key(pivot) 값을 기준으로 오른쪽 리스트 정렬시 재귀
-	if(left_node->list.next_node != NULL && nleft < nTotal )
-		if((left_node->list.pre_node != right) &&  (right->list.next_node != left_node))
-			sort_quick(mode, left_node->list.next_node, right);
-
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/02 20:39:45 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:32:36 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ void	swap_dlst_xy(t_stack *stack, size_t x, size_t y)
 	if (stack == NULL || x == y)
 		return ;
 	lst_x = dlst_count(stack->head, x);
-	printf("lst_x->data : %d\n", lst_x->value);
 	lst_y = dlst_count(stack->head, y);
-	printf("lst_y->data : %d\n", lst_y->value);
+	if (lst_x == NULL || lst_y == NULL)
+		return ;
 	dlst_node_swap(lst_x, lst_y);
 	printf("stack의 %zu번째 노드와 %zu번째 노드를 swap했습니다.\n", x, y);
 }
@@ -80,8 +80,12 @@ int	main(int argc, char **argv)
 	// op_pb(&stk_a, &stk_b);
 	// print_2_stack(&stk_a, &stk_b);
 
-	swap_dlst_xy(&stk_a, 2, 5);
-	print_2_stack(&stk_a, &stk_b);
+	// swap_dlst_xy(&stk_a, 0, 1);
+	// print_2_stack(&stk_a, &stk_b);
+
+	// op_sa(&stk_a);
+	// print_2_stack(&stk_a, &stk_b);
+	printf("tail->value = %d\n", dlst_last(stk_a.head)->value);
 
 	return (0);
 }

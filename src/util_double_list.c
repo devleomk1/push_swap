@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/02 20:39:07 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:36:55 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,11 @@ t_dlst	*dlst_count(t_dlst *lst, size_t n)
 {
 	t_dlst	*curr;
 
-	if (lst == NULL)
+	if (lst == NULL || dlst_size(lst) < (int)n)
+	{
+		printf("count error\n");
 		return (0);
+	}
 	curr = lst;
 	while (n > 0)
 	{
@@ -129,6 +132,13 @@ t_dlst	*dlst_count(t_dlst *lst, size_t n)
 	return (curr);
 }
 
+// A utility function to find last node of linked list
+t_dlst	*dlst_last(t_dlst *head)
+{
+	t_dlst	*tmp;
+	tmp = head->prev;
+	return (tmp);
+}
 
 /* [BEFORE] -> [NEW] -> [AFTER] */
 void	dlst_insert(t_dlst *before, t_dlst *new)
@@ -141,38 +151,42 @@ void	dlst_insert(t_dlst *before, t_dlst *new)
 	before->next = new;
 	printf("insert_END\n");
 }
+void	dlst_ndoe_swap_next(t_dlst **lst)
+{
+	int	tmp;
+
+	if(lst == NULL || (*lst)->next == NULL || (*lst)->next == *lst)
+		return ;
+	tmp = (*lst)->value;
+	(*lst)->value = (*lst)->next->value;
+	(*lst)->next->value = tmp;
+}
 
 void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2)
 {
-	t_dlst	*tmp_p;
-	t_dlst	*tmp_n;
+	t_dlst	*tmp_prev;
+	t_dlst	*tmp_next;
 
 	if(lst1 == NULL || lst2 == NULL || lst1 == lst2 )
-	{
-		printf("NULL ERROR\n");
 		return ;
+	if (lst1->next == lst2 || lst2->next == lst1)
+		dlst_ndoe_swap_next(&lst1);
+	else
+	{
+		tmp_prev = lst2->prev;
+		tmp_next = lst2->next;
+		lst2->prev = lst1->prev;
+		lst2->next = lst1->next;
+		lst1->prev = tmp_prev;
+		lst1->next = tmp_next;
+		if (lst2->next != NULL)
+			lst2->next->prev = lst2;
+		if (lst2->prev != NULL)
+			lst2->prev->next = lst2;
+		if (lst1->next != NULL)
+			lst1->next->prev = lst1;
+		if (lst1->prev != NULL)
+			lst1->prev->next = lst1;
 	}
-	 tmp_p = lst2->prev;
-        tmp_n = lst2->next;
-
-        lst2->prev = lst1->prev;
-        lst2->next = lst1->next;
-
-        lst1->prev = tmp_p;
-        lst1->next = tmp_n;
-
-        if (lst2->next != NULL)
-            lst2->next->prev = lst2;
-        if (lst2->prev != NULL)
-            lst2->prev->next = lst2;
-
-        if (lst1->next != NULL)
-            lst1->next->prev = lst1;
-        if (lst1->prev != NULL)
-            lst1->prev->next = lst1;
-
-	printf("After\n");
-	printf("lst1 : %d->%d->%d\n", (lst1)->prev->value, (lst1)->value, (lst1)->next->value);
-	printf("lst2 : %d->%d->%d\n", (lst2)->prev->value, (lst2)->value, (lst2)->next->value);
 }
 

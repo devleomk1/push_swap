@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 12:31:59 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/02 17:07:19 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:33:19 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,6 @@ t_list	*ft_lstpop(t_list **lst)
 	return (tmp);
 }
 
-void	*ft_swap_a(t_list **stack_a)
-{
-	void *tmp;
-
-	if(stack_a == NULL || (*stack_a)->next == NULL)
-		return (NULL);
-	tmp = (*stack_a)->content;
-	//printf("s_a->con : %s\n", (*stack_a)->content);
-	//printf("s_a->nex->con : %s\n", (*stack_a)->next->content);
-	(*stack_a)->content = (*stack_a)->next->content;
-	(*stack_a)->next->content = tmp;
-}
 void	*ft_swap_a2(t_list **stack_a)
 {
 	t_list *tmp;

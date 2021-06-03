@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/02 20:25:35 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/03 19:30:18 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct		s_dlst
 typedef struct		s_stack
 {
 	t_dlst	*head;
-	// t_dlst	*tail;
 }					t_stack;
 
 /**
@@ -40,7 +39,9 @@ void	dlst_add_back(t_dlst **lst, t_dlst *new);
 t_dlst	*dlst_pop(t_dlst **lst);
 int		dlst_size(t_dlst *lst);
 t_dlst	*dlst_count(t_dlst *lst, size_t n);
+t_dlst	*dlst_last(t_dlst *lst);
 void	dlst_insert(t_dlst *before, t_dlst *new);
+void	dlst_ndoe_swap_next(t_dlst **lst);
 void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2);
 void	node_swap(t_dlst *lst1, t_dlst *lst2);
 
