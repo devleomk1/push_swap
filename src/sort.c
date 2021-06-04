@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 21:07:13 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/03 19:49:58 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/04 14:41:52 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,25 @@ t_dlst	*partition(t_dlst *low,	t_dlst *high)
 		i = low;
 	else
 		i = i->next;
-	swap_int(&(i->value), &(h->value));
+	swap_int(&(i->value), &(high->value));
 	return i;
 }
 
-void	quick_sort(t_dlst *head, int left, int right)
+void	_quick_sort(t_dlst *low, t_dlst *high)
 {
-	if (left < right)
+	t_dlst *p;
+
+	if (high != NULL && low != high && low != high->next)
 	{
-		q =
-		quick_sort(head, left)
+		p = partition(low, high);
+		_quick_sort(low, p->prev);
+		_quick_sort(p->next, high);
 	}
 
+}
 
+void	quick_sort(t_dlst *head)
+{
+	t_dlst	*tail = head->prev;
+	_quick_sort(head, tail);
 }
