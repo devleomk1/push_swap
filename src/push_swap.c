@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/05 00:37:11 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/07 20:11:30 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ void	push_swap(void)
 
 }
 //최적 피봇을 찾기 위해 우선 정렬을 해야한다.
+void	error_exit(void)
+{
+	printf(STR_COLOR_RED "INPUT ERROR\n" STR_COLOR_RESET);
+	exit(0);
+}
 
 int	main(int argc, char **argv)
 {
@@ -86,7 +91,8 @@ int	main(int argc, char **argv)
 	t_stack	stk_b;
 
 	if (argc < 2)
-		return (0);
+		error_exit();
+	init_stack(&stk_a);
 	init_stack(&stk_b);
 	i = 1;
 	while (argv[i] != NULL)
