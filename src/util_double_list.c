@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/03 19:36:55 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/04 22:40:58 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,27 @@ t_dlst	*dlst_last(t_dlst *head)
 	t_dlst	*tmp;
 	tmp = head->prev;
 	return (tmp);
+}
+
+void	dlst_queue_cut(t_dlst *head)
+{
+	t_dlst *tail;
+
+	tail = head->prev;
+	if(head->prev != NULL)
+	{
+		tail->next = NULL;
+		head->prev = NULL;
+	}
+}
+
+void	dlst_queue_link(t_dlst *head, t_dlst *tail)
+{
+	if(head != NULL && tail != NULL)
+	{
+		head->prev = tail;
+		tail->next = head;
+	}
 }
 
 /* [BEFORE] -> [NEW] -> [AFTER] */

@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/03 19:30:18 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/04 22:41:15 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ t_dlst	*dlst_pop(t_dlst **lst);
 int		dlst_size(t_dlst *lst);
 t_dlst	*dlst_count(t_dlst *lst, size_t n);
 t_dlst	*dlst_last(t_dlst *lst);
+void	dlst_queue_cut(t_dlst *head);
+void	dlst_queue_link(t_dlst *head, t_dlst *tail);
 void	dlst_insert(t_dlst *before, t_dlst *new);
 void	dlst_ndoe_swap_next(t_dlst **lst);
 void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2);
@@ -69,5 +71,10 @@ void	op_pb(t_stack *a, t_stack *b);
 
 void	op_ra(t_stack *a);
 void	op_rb(t_stack *b);
+
+/**
+ * sort.c
+ */
+void	quick_sort(t_dlst *head);
 
 # endif

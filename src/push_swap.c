@@ -6,11 +6,27 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/03 19:32:36 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/05 00:37:11 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	print_stack_lst(t_stack *stack)
+{
+	int		len;
+	t_dlst	*curr;
+
+	len = dlst_size(stack->head);
+	curr = stack->head;
+	printf("[H] ");
+	while (len-- > 0)
+	{
+		printf("%d ", curr->value);
+		curr = curr->next;
+	}
+	printf("[T] ");
+}
 
 void	print_stack(t_stack *stack)
 {
@@ -33,11 +49,13 @@ void	print_stack(t_stack *stack)
 
 void	print_2_stack(t_stack *stk1, t_stack *stk2)
 {
-	printf("STACK A\n");
-	print_stack(stk1);
+	printf("Stack A : ");
+	//print_stack(stk1);
+	print_stack_lst(stk1);
 	printf("\n\n");
-	printf("STACK B\n");
-	print_stack(stk2);
+	printf("Stack B : ");
+	//print_stack(stk2);
+	print_stack_lst(stk2);
 	printf("\n");
 }
 
@@ -85,7 +103,9 @@ int	main(int argc, char **argv)
 
 	// op_sa(&stk_a);
 	// print_2_stack(&stk_a, &stk_b);
-	printf("tail->value = %d\n", dlst_last(stk_a.head)->value);
+
+	quick_sort(stk_a.head);
+	print_2_stack(&stk_a, &stk_b);
 
 	return (0);
 }
