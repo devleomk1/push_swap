@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/07 20:11:30 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/07 21:44:28 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	print_2_stack(t_stack *stk1, t_stack *stk2)
 	printf("Stack A : ");
 	//print_stack(stk1);
 	print_stack_lst(stk1);
-	printf("\n\n");
+	printf("\n");
 	printf("Stack B : ");
 	//print_stack(stk2);
 	print_stack_lst(stk2);
@@ -78,11 +78,31 @@ void	push_swap(void)
 
 }
 //최적 피봇을 찾기 위해 우선 정렬을 해야한다.
-void	error_exit(void)
+int	is_sort_lst(t_dlst *lst)
 {
-	printf(STR_COLOR_RED "INPUT ERROR\n" STR_COLOR_RESET);
-	exit(0);
+	t_dlst	*curr;
+
+	curr = lst;
+	if (curr->next == curr && curr->prev == curr)
+		return (TRUE);
+	while (curr->next != lst)
+	{
+		if(curr->value > curr->next->value)
+			return (FALSE);
+		curr = curr->next;
+	}
+	return (TRUE);
 }
+
+void	print_sort_status(t_dlst *lst)
+{
+	if (is_sort_lst(lst))
+		printf("Sort\t: " STR_COLOR_GREEN "OK\n" STR_COLOR_RESET);
+	else
+		printf("Sort\t: " STR_COLOR_RED "KO\n" STR_COLOR_RESET);
+}
+
+
 
 int	main(int argc, char **argv)
 {
@@ -98,6 +118,7 @@ int	main(int argc, char **argv)
 	while (argv[i] != NULL)
 		push_new(&stk_a, ft_atoi(argv[i++]));
 	print_2_stack(&stk_a, &stk_b);
+	print_sort_status(stk_a.head);
 
 	// op_ra(&stk_a);
 	// print_2_stack(&stk_a, &stk_b);
@@ -112,6 +133,7 @@ int	main(int argc, char **argv)
 
 	quick_sort(stk_a.head);
 	print_2_stack(&stk_a, &stk_b);
+	print_sort_status(stk_a.head);
 
 	return (0);
 }

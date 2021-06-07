@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/07 20:11:24 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/07 21:25:12 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 # include <stdio.h>
 
 # include "printf_color.h"
+
+# define TRUE 1
+# define FALSE 0
 
 typedef struct		s_dlst
 {
@@ -61,10 +64,15 @@ void	swap_stack(t_stack *stack);
 void	rotate_stack(t_stack *stack);
 
 /**
- * util.c
+ * Utils
+ * files : util.c
  */
 int		ft_atoi(const char *str);
 
+/**
+ * Operations
+ * files : op_swap_and_push.c, op_rotate.c, op_rev_rotate.c
+ */
 void	op_sa(t_stack *a);
 void	op_sb(t_stack *b);
 void	op_ss(t_stack *a, t_stack *b);
@@ -78,5 +86,11 @@ void	op_rb(t_stack *b);
  * sort.c
  */
 void	quick_sort(t_dlst *head);
+
+/**
+ * Exit
+ * file : exit.c
+ */
+void	error_exit(void);
 
 # endif

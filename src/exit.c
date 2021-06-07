@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_color.h                                     :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 20:09:25 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/07 21:05:40 by jisokang         ###   ########.fr       */
+/*   Created: 2021/06/07 20:36:45 by jisokang          #+#    #+#             */
+/*   Updated: 2021/06/07 21:09:55 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_COLOR_H
-# define PRINTF_COLOR_H
+#include "../include/push_swap.h"
 
-# define STR_COLOR_RED     "\x1b[31m"
-# define STR_COLOR_GREEN   "\x1b[32m"
-# define STR_COLOR_BLUE    "\x1b[34m"
-# define STR_COLOR_YELLOW  "\x1b[33m"
-# define STR_COLOR_MAGENTA "\x1b[35m"
-# define STR_COLOR_CYAN    "\x1b[36m"
-# define STR_COLOR_RESET   "\x1b[0m"
-
-#endif
+void	error_exit(void)
+{
+	printf(STR_COLOR_RED "INPUT ERROR\n" STR_COLOR_RESET);
+	exit(0);
+}
