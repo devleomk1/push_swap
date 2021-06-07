@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/07 21:44:28 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/07 21:56:40 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,12 @@ void	print_stack(t_stack *stack)
 void	print_2_stack(t_stack *stk1, t_stack *stk2)
 {
 	printf("Stack A : ");
-	//print_stack(stk1);
-	print_stack_lst(stk1);
+	print_stack(stk1);
+	// print_stack_lst(stk1);
 	printf("\n");
 	printf("Stack B : ");
-	//print_stack(stk2);
-	print_stack_lst(stk2);
+	print_stack(stk2);
+	// print_stack_lst(stk2);
 	printf("\n");
 }
 
@@ -97,11 +97,15 @@ int	is_sort_lst(t_dlst *lst)
 void	print_sort_status(t_dlst *lst)
 {
 	if (is_sort_lst(lst))
-		printf("Sort\t: " STR_COLOR_GREEN "OK\n" STR_COLOR_RESET);
+		printf("Sort\t: " STR_COLOR_GREEN "OK\n\n" STR_COLOR_RESET);
 	else
-		printf("Sort\t: " STR_COLOR_RED "KO\n" STR_COLOR_RESET);
+		printf("Sort\t: " STR_COLOR_RED "KO\n\n" STR_COLOR_RESET);
 }
 
+// int	is_duplicate_lst(t_dlst *lst)
+// {
+
+// }
 
 
 int	main(int argc, char **argv)
