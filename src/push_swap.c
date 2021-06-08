@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/07 21:56:40 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/08 19:33:05 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	print_stack_lst(t_stack *stack)
 
 	len = dlst_size(stack->head);
 	curr = stack->head;
-	printf("[H] ");
+	// printf("[H] ");
 	while (len-- > 0)
 	{
 		printf("%d ", curr->value);
 		curr = curr->next;
 	}
-	printf("[T] ");
+	printf("||");
 }
 
 void	print_stack(t_stack *stack)
@@ -49,14 +49,14 @@ void	print_stack(t_stack *stack)
 
 void	print_2_stack(t_stack *stk1, t_stack *stk2)
 {
-	printf("Stack A : ");
-	print_stack(stk1);
-	// print_stack_lst(stk1);
+	printf("-----------------------\nStack A : ");
+	// print_stack(stk1);
+	print_stack_lst(stk1);
 	printf("\n");
 	printf("Stack B : ");
-	print_stack(stk2);
-	// print_stack_lst(stk2);
-	printf("\n");
+	// print_stack(stk2);
+	print_stack_lst(stk2);
+	printf("\n-----------------------\n");
 }
 
 void	swap_dlst_xy(t_stack *stack, size_t x, size_t y)
@@ -77,36 +77,6 @@ void	push_swap(void)
 {
 
 }
-//최적 피봇을 찾기 위해 우선 정렬을 해야한다.
-int	is_sort_lst(t_dlst *lst)
-{
-	t_dlst	*curr;
-
-	curr = lst;
-	if (curr->next == curr && curr->prev == curr)
-		return (TRUE);
-	while (curr->next != lst)
-	{
-		if(curr->value > curr->next->value)
-			return (FALSE);
-		curr = curr->next;
-	}
-	return (TRUE);
-}
-
-void	print_sort_status(t_dlst *lst)
-{
-	if (is_sort_lst(lst))
-		printf("Sort\t: " STR_COLOR_GREEN "OK\n\n" STR_COLOR_RESET);
-	else
-		printf("Sort\t: " STR_COLOR_RED "KO\n\n" STR_COLOR_RESET);
-}
-
-// int	is_duplicate_lst(t_dlst *lst)
-// {
-
-// }
-
 
 int	main(int argc, char **argv)
 {
@@ -124,18 +94,8 @@ int	main(int argc, char **argv)
 	print_2_stack(&stk_a, &stk_b);
 	print_sort_status(stk_a.head);
 
-	// op_ra(&stk_a);
-	// print_2_stack(&stk_a, &stk_b);
-	// op_pb(&stk_a, &stk_b);
-	// print_2_stack(&stk_a, &stk_b);
-
-	// swap_dlst_xy(&stk_a, 0, 1);
-	// print_2_stack(&stk_a, &stk_b);
-
-	// op_sa(&stk_a);
-	// print_2_stack(&stk_a, &stk_b);
-
 	quick_sort(stk_a.head);
+
 	print_2_stack(&stk_a, &stk_b);
 	print_sort_status(stk_a.head);
 
