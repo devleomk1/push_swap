@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/08 19:43:58 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/08 20:22:17 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct		s_stack
 {
 	t_dlst	*head;
 }					t_stack;
-
 
 
 /**
@@ -93,7 +92,7 @@ void	quick_sort(t_dlst *head);
  * Exit
  * files : exit.c
  */
-void	error_exit(void);
+void	error_exit(char *message);
 
 /**
  * Check lst status

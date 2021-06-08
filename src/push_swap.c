@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/08 19:33:05 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/08 20:50:52 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,11 @@ int	main(int argc, char **argv)
 	t_stack	stk_b;
 
 	if (argc < 2)
-		error_exit();
+		error_exit("Argument Error");
+	else if(argc == 2)
+	{
+		printf("only one argument\n");
+	}
 	init_stack(&stk_a);
 	init_stack(&stk_b);
 	i = 1;
