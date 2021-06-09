@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   get_median.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 20:36:45 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/09 21:35:45 by jisokang         ###   ########.fr       */
+/*   Created: 2021/06/09 20:47:47 by jisokang          #+#    #+#             */
+/*   Updated: 2021/06/09 21:26:07 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	error_exit(char *message)
+void	get_median()
 {
-	printf(COLOR_RED "%s" COLOR_RESET "\n", message);
-	exit(0);
+
 }

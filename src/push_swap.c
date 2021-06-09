@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/08 20:50:52 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/09 21:32:53 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,28 +80,17 @@ void	push_swap(void)
 
 int	main(int argc, char **argv)
 {
-	int		i;
 	t_stack	stk_a;
 	t_stack	stk_b;
 
-	if (argc < 2)
-		error_exit("Argument Error");
-	else if(argc == 2)
-	{
-		printf("only one argument\n");
-	}
-	init_stack(&stk_a);
-	init_stack(&stk_b);
-	i = 1;
-	while (argv[i] != NULL)
-		push_new(&stk_a, ft_atoi(argv[i++]));
+	init_push_swap(&stk_a, &stk_b, argc, argv);
 	print_2_stack(&stk_a, &stk_b);
-	print_sort_status(stk_a.head);
-
-	quick_sort(stk_a.head);
+	//print_sort_status(stk_a.head);
+	op_rra(&stk_a);
+	//quick_sort(stk_a.head);
 
 	print_2_stack(&stk_a, &stk_b);
-	print_sort_status(stk_a.head);
+	//print_sort_status(stk_a.head);
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/08 20:22:17 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/09 21:32:12 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,16 @@ typedef struct		s_dlst
 
 typedef struct		s_stack
 {
-	t_dlst	*head;
+	t_dlst			*head;
 }					t_stack;
 
+typedef struct		s_block
+{
+	int				len;
+	int				min;
+	int				mid;
+	int				max;
+}					t_block;
 
 /**
  * util_double_list.c
@@ -63,6 +70,7 @@ t_dlst	*pop_stack(t_stack *stack);
 void	push_stack(t_stack *src, t_stack *dst);
 void	swap_stack(t_stack *stack);
 void	rotate_stack(t_stack *stack);
+void	rev_rotate_stack(t_stack *stack);
 
 /**
  * Utils
@@ -82,7 +90,11 @@ void	op_pb(t_stack *a, t_stack *b);
 
 void	op_ra(t_stack *a);
 void	op_rb(t_stack *b);
+void	op_rr(t_stack *a, t_stack *b);
 
+void	op_rra(t_stack *a);
+void	op_rrb(t_stack *b);
+void	op_rrr(t_stack *a, t_stack *b);
 /**
  * sort.c
  */
@@ -101,5 +113,11 @@ void	error_exit(char *message);
 int		is_sort_lst(t_dlst *lst);
 int		is_duplicate(t_dlst *lst);
 void	print_sort_status(t_dlst *lst);
+
+/**
+ * Init push_swap
+ * files: init.c
+ */
+void	init_push_swap(t_stack *a, t_stack *b, int argc, char **argv);
 
 # endif

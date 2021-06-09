@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 21:19:35 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/08 20:56:59 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/09 21:35:45 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ int	is_duplicate(t_dlst *lst)
 void	print_sort_status(t_dlst *lst)
 {
 	if (is_duplicate(lst) == TRUE)
-		printf("Dupl\t: " STR_COLOR_RED "KO\n" STR_COLOR_RESET);
+		printf("Dupl\t: " COLOR_RED "KO\n" COLOR_RESET);
 	else
-		printf("Dupl\t: " STR_COLOR_GREEN "OK\n" STR_COLOR_RESET);
+		printf("Dupl\t: " COLOR_GREEN "OK\n" COLOR_RESET);
 
 	if (is_sort_lst(lst) == TRUE)
-		printf("Sort\t: " STR_COLOR_GREEN "OK\n" STR_COLOR_RESET);
+		printf("Sort\t: " COLOR_GREEN "OK\n" COLOR_RESET);
 	else
-		printf("Sort\t: " STR_COLOR_RED "KO\n" STR_COLOR_RESET);
+		printf("Sort\t: " COLOR_RED "KO\n" COLOR_RESET);
 }
