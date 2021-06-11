@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/04 22:40:58 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/11 16:25:42 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ t_dlst	*dlst_count(t_dlst *lst, size_t n)
 	curr = lst;
 	while (n > 0)
 	{
-		printf("n = %d\n", (int)n);
+		// printf("n = %d\n", (int)n);
 		curr = curr->next;
 		n--;
 	}
@@ -211,3 +211,17 @@ void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2)
 	}
 }
 
+t_dlst	*dlst_copy(t_dlst *lst)
+{
+	t_dlst *tmp;
+	t_dlst *curr;
+
+	curr = lst;
+	while (curr->next != lst)
+	{
+		tmp
+		curr = curr->next;
+	}
+
+	return (tmp);
+}

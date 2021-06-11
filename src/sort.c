@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 21:07:13 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/05 00:27:49 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/11 15:30:59 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,23 @@ static void	_quick_sort(t_dlst *low, t_dlst *high)
 	}
 }
 
+
 void	quick_sort(t_dlst *head)
 {
 	t_dlst	*tail;
+	t_block	block;
 	tail = head->prev;
 
 	dlst_queue_cut(head);
 	_quick_sort(head, tail);
 	dlst_queue_link(head, tail);
+
+	block.len = dlst_size(head);
+	block.min = head;
+	block.mid = dlst_count(head, (block.len / 2));
+	block.max = tail;
+	printf ("Len : %d\n", block.len);
+	printf ("min : %d\n", block.min->value);
+	printf ("mid : %d\n", block.mid->value);
+	printf ("max : %d\n", block.max->value);
 }

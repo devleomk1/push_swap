@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/09 21:32:12 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/11 15:14:44 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ typedef struct		s_stack
 typedef struct		s_block
 {
 	int				len;
-	int				min;
-	int				mid;
-	int				max;
+	t_dlst			*min;
+	t_dlst			*mid;
+	t_dlst			*max;
 }					t_block;
 
 /**
