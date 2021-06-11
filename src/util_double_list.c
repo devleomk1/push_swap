@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/11 16:25:42 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/11 19:04:53 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,17 +211,18 @@ void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2)
 	}
 }
 
-t_dlst	*dlst_copy(t_dlst *lst)
-{
-	t_dlst *tmp;
-	t_dlst *curr;
+// t_dlst	*dlst_copy(t_dlst *lst)
+// {
+// 	t_dlst *tmp;
+// 	t_dlst *curr;
 
-	curr = lst;
-	while (curr->next != lst)
-	{
-		tmp
-		curr = curr->next;
-	}
-
-	return (tmp);
-}
+// 	curr = lst;
+// 	while (curr->next != lst)
+// 	{
+// 		tmp->value = curr->value;
+// 		tmp->next = curr->next;
+// 		tmp->prev = curr->prev;
+// 		curr = curr->next;
+// 	}
+// 	return (tmp);
+// }

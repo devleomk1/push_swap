@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/11 15:37:55 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/11 20:41:38 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,66 @@ void	push_swap_BtoA(t_stack *a, t_stack *b, unsigned int range, int pivot)
 	}
 }
 
+t_dlst	*dlst_new_copy(t_dlst *lst)
+{
+	t_dlst *new;
+
+	new = (t_dlst *)malloc(sizeof(t_dlst));
+	if (new == NULL)
+	{
+		printf("MALLOC_ERROR\n");
+		return (NULL);
+	}
+	new->value = lst->value;
+	return (new);
+}
+t_dlst	*dlst_copy_lst(t_dlst *lst)
+{
+	t_dlst	*curr;
+	t_dlst	*tmp;
+	t_dlst	*tmp2;
+
+	curr = lst;
+	tmp2 = lst;
+	while (curr->next != tmp2)
+	{
+		tmp = dlst_new_copy(curr);
+		dlst_add_back(&lst, tmp);
+		curr = curr->next;
+	}
+	return (tmp);
+}
+
+void	dlst_print(t_dlst *head)
+{
+	t_dlst *curr;
+
+	curr = head;
+	while (curr->next != head)
+	{
+		printf("%d ", curr->value);
+		curr = curr->next;
+	}
+	printf("%d ", curr->value);
+	printf("\n");
+
+}
+
+t_dlst	*copy_list(t_dlst *lst)
+{
+	t_dlst	*curr;
+	t_dlst	*cpy = NULL;
+
+	curr = lst;
+	while (curr->next != lst)
+	{
+		dlst_add_back(&cpy, dlst_new(curr->value));
+		curr = curr->next;
+	}
+	dlst_add_back(&cpy, dlst_new(curr->value));
+	return (cpy);
+
+}
 
 int	main(int argc, char **argv)
 {
@@ -142,12 +202,13 @@ int	main(int argc, char **argv)
 	print_2_stack(&stk_a, &stk_b);
 	//print_sort_status(stk_a.head);
 
-	*&tmp = stk_a.head;
+	tmp = copy_list(stk_a.head);
+	dlst_print(tmp);
 	quick_sort(tmp);
+	// quick_sort(stk_a.head);
 	// push_swap_AtoB(&stk_a, &stk_b, 20, 11);
 	// push_swap_BtoA(&stk_a, &stk_b, 10, 6);
-
-
+	dlst_print(tmp);
 	print_2_stack(&stk_a, &stk_b);
 	//print_sort_status(stk_a.head);
 

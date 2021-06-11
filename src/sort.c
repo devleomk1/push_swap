@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 21:07:13 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/11 15:30:59 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/11 20:50:10 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ void	quick_sort(t_dlst *head)
 	dlst_queue_link(head, tail);
 
 	block.len = dlst_size(head);
-	block.min = head;
+	// block.min = head;
 	block.mid = dlst_count(head, (block.len / 2));
-	block.max = tail;
+	// block.max = tail;
 	printf ("Len : %d\n", block.len);
-	printf ("min : %d\n", block.min->value);
+	// printf ("min : %d\n", block.min->value);
 	printf ("mid : %d\n", block.mid->value);
-	printf ("max : %d\n", block.max->value);
+	// printf ("max : %d\n", block.max->value);
 }
