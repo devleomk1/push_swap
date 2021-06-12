@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/11 20:41:38 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/12 23:47:40 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	print_stack(t_stack *stack)
 
 void	print_2_stack(t_stack *stk1, t_stack *stk2)
 {
-	printf("-----------------------\nStack A : ");
+	//printf("-----------------------\nStack A : ");
 	// print_stack(stk1);
 	print_stack_lst(stk1);
 	printf("\n");
