@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/12 23:47:40 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/13 23:50:03 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	print_2_stack(t_stack *stk1, t_stack *stk2)
 	printf("Stack B : ");
 	// print_stack(stk2);
 	print_stack_lst(stk2);
-	printf("\n-----------------------\n");
+	//printf("\n-----------------------\n");
 }
 
 void	swap_dlst_xy(t_stack *stack, size_t x, size_t y)
