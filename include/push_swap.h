@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/11 15:14:44 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/14 21:46:49 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ typedef struct		s_stack
 typedef struct		s_block
 {
 	int				len;
-	t_dlst			*min;
-	t_dlst			*mid;
-	t_dlst			*max;
+	int				mid;
+	int				max;
+	int				min;
 }					t_block;
 
 /**
@@ -58,13 +58,14 @@ void	dlst_queue_link(t_dlst *head, t_dlst *tail);
 void	dlst_insert(t_dlst *before, t_dlst *new);
 void	dlst_ndoe_swap_next(t_dlst **lst);
 void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2);
+void	dlst_print(t_dlst *head);
 void	node_swap(t_dlst *lst1, t_dlst *lst2);
 
 /**
  * util_stack.c
  */
 void	init_stack(t_stack *stack);
-void	push_new(t_stack *stack, int value);
+void	push_arg(t_stack *stack, int value);
 void	push(t_stack *stack, t_dlst *new);
 t_dlst	*pop_stack(t_stack *stack);
 void	push_stack(t_stack *src, t_stack *dst);
@@ -113,11 +114,18 @@ void	error_exit(char *message);
 int		is_sort_lst(t_dlst *lst);
 int		is_duplicate(t_dlst *lst);
 void	print_sort_status(t_dlst *lst);
+void	stack_status_check(t_stack *stk);
 
 /**
  * Init push_swap
- * files: init.c
+ * files : init.c
  */
 void	init_push_swap(t_stack *a, t_stack *b, int argc, char **argv);
+
+/**
+ * Get median value
+ * files : get_median.c
+ */
+void	*get_lst_median_val(t_dlst *head, t_block *block);
 
 # endif

@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/11 19:04:53 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/14 21:37:21 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,7 @@ t_dlst	*dlst_new(int value)
 void	dlst_add_front(t_dlst **lst, t_dlst *new)
 {
 	if (new == NULL)
-	{
-		printf("NULL_ERROR_dlst_add_front\n");
 		return ;
-	}
 	if (*lst)
 	{
 		new->prev = (*lst)->prev;	//서순 조심
@@ -80,14 +77,20 @@ t_dlst	*dlst_pop(t_dlst **lst)
 
 	if (lst == NULL)
 		return (NULL);
-	//head가 나가고 *lst->next랑 tail이랑 연결
-	tmp = *lst;
-	*lst = tmp->next;
-	tmp->next = tmp;
-	(*lst)->prev = tmp->prev;
-	tmp->prev = tmp;
-	(*lst)->prev->next = *lst;
 
+	tmp = *lst;
+	// *lst의 node가 1개 일 때
+	if ((*lst)->next == (*lst) && (*lst)->prev == (*lst))
+		*lst = NULL;
+	else
+	{
+		//head가 나가고 *lst->next랑 tail이랑 연결
+		*lst = tmp->next;
+		tmp->next = tmp;
+		(*lst)->prev = tmp->prev;
+		tmp->prev = tmp;
+		(*lst)->prev->next = *lst;
+	}
 	return (tmp);
 }
 
@@ -143,8 +146,8 @@ t_dlst	*dlst_last(t_dlst *head)
 void	dlst_queue_cut(t_dlst *head)
 {
 	t_dlst *tail;
-
-	tail = head->prev;
+	if (head->prev != head->next)
+		tail = head->prev;
 	if(head->prev != NULL)
 	{
 		tail->next = NULL;
@@ -154,6 +157,9 @@ void	dlst_queue_cut(t_dlst *head)
 
 void	dlst_queue_link(t_dlst *head, t_dlst *tail)
 {
+	// 이것도 이상하네
+	if (head->next == head->prev)
+		return ;
 	if(head != NULL && tail != NULL)
 	{
 		head->prev = tail;
@@ -172,6 +178,21 @@ void	dlst_insert(t_dlst *before, t_dlst *new)
 	before->next = new;
 	printf("insert_END\n");
 }
+
+void	dlst_print(t_dlst *head)
+{
+	t_dlst *curr;
+
+	curr = head;
+	while (curr->next != head)
+	{
+		printf("%d ", curr->value);
+		curr = curr->next;
+	}
+	printf("%d ", curr->value);
+	printf("\n");
+}
+
 void	dlst_ndoe_swap_next(t_dlst **lst)
 {
 	int	tmp;
@@ -211,18 +232,3 @@ void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2)
 	}
 }
 
-// t_dlst	*dlst_copy(t_dlst *lst)
-// {
-// 	t_dlst *tmp;
-// 	t_dlst *curr;
-
-// 	curr = lst;
-// 	while (curr->next != lst)
-// 	{
-// 		tmp->value = curr->value;
-// 		tmp->next = curr->next;
-// 		tmp->prev = curr->prev;
-// 		curr = curr->next;
-// 	}
-// 	return (tmp);
-// }

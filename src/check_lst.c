@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 21:19:35 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/09 21:35:45 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/14 15:41:02 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,12 @@ void	print_sort_status(t_dlst *lst)
 		printf("Sort\t: " COLOR_GREEN "OK\n" COLOR_RESET);
 	else
 		printf("Sort\t: " COLOR_RED "KO\n" COLOR_RESET);
+}
+
+void	stack_status_check(t_stack *stk)
+{
+	if (is_duplicate(stk->head) == TRUE)
+		error_exit("Error : Dubpicate node found");
+	if (is_sort_lst(stk->head) == TRUE)
+		exit(0);
 }

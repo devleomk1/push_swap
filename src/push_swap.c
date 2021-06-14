@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/13 23:50:03 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/14 22:36:47 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ void	print_stack(t_stack *stack)
 
 void	print_2_stack(t_stack *stk1, t_stack *stk2)
 {
-	//printf("-----------------------\nStack A : ");
+	printf("-----------------------\nStack A : ");
 	// print_stack(stk1);
 	print_stack_lst(stk1);
 	printf("\n");
 	printf("Stack B : ");
 	// print_stack(stk2);
 	print_stack_lst(stk2);
-	//printf("\n-----------------------\n");
+	printf("\n-----------------------\n");
 }
 
 void	swap_dlst_xy(t_stack *stack, size_t x, size_t y)
@@ -70,7 +70,6 @@ void	swap_dlst_xy(t_stack *stack, size_t x, size_t y)
 	if (lst_x == NULL || lst_y == NULL)
 		return ;
 	dlst_node_swap(lst_x, lst_y);
-	printf("stack의 %zu번째 노드와 %zu번째 노드를 swap했습니다.\n", x, y);
 }
 
 void	push_swap_AtoB(t_stack *a, t_stack *b, unsigned int range, int pivot)
@@ -94,12 +93,12 @@ void	push_swap_AtoB(t_stack *a, t_stack *b, unsigned int range, int pivot)
 		}
 		range--;
 	}
-	print_2_stack(a, b);
 	while(ra_count > 0)
 	{
 		op_rra(a);
 		ra_count--;
 	}
+	print_2_stack(a, b);
 }
 
 void	push_swap_BtoA(t_stack *a, t_stack *b, unsigned int range, int pivot)
@@ -123,12 +122,12 @@ void	push_swap_BtoA(t_stack *a, t_stack *b, unsigned int range, int pivot)
 		}
 		range--;
 	}
-	print_2_stack(a, b);
 	while(rb_count > 0)
 	{
 		op_rrb(b);
 		rb_count--;
 	}
+	print_2_stack(a, b);
 }
 
 t_dlst	*dlst_new_copy(t_dlst *lst)
@@ -161,26 +160,12 @@ t_dlst	*dlst_copy_lst(t_dlst *lst)
 	return (tmp);
 }
 
-void	dlst_print(t_dlst *head)
-{
-	t_dlst *curr;
-
-	curr = head;
-	while (curr->next != head)
-	{
-		printf("%d ", curr->value);
-		curr = curr->next;
-	}
-	printf("%d ", curr->value);
-	printf("\n");
-
-}
-
 t_dlst	*copy_list(t_dlst *lst)
 {
 	t_dlst	*curr;
-	t_dlst	*cpy = NULL;
+	t_dlst	*cpy;
 
+	cpy = NULL;
 	curr = lst;
 	while (curr->next != lst)
 	{
@@ -192,25 +177,35 @@ t_dlst	*copy_list(t_dlst *lst)
 
 }
 
+
+
 int	main(int argc, char **argv)
 {
 	t_stack	stk_a;
 	t_stack	stk_b;
-	t_dlst	*tmp;
+	t_block	block;
 
 	init_push_swap(&stk_a, &stk_b, argc, argv);
+	init_block(&block);
 	print_2_stack(&stk_a, &stk_b);
-	//print_sort_status(stk_a.head);
 
-	tmp = copy_list(stk_a.head);
-	dlst_print(tmp);
-	quick_sort(tmp);
-	// quick_sort(stk_a.head);
-	// push_swap_AtoB(&stk_a, &stk_b, 20, 11);
-	// push_swap_BtoA(&stk_a, &stk_b, 10, 6);
-	dlst_print(tmp);
-	print_2_stack(&stk_a, &stk_b);
-	//print_sort_status(stk_a.head);
+	get_lst_median_val(copy_list(stk_a.head), &block);
+	push_swap_AtoB(&stk_a, &stk_b, block.len, block.mid);
+
+	get_lst_median_val(copy_list(stk_b.head), &block);
+	push_swap_BtoA(&stk_a, &stk_b, block.len, block.mid);
+
+	if (LEN == 2)
+
+	// push()함수 잘못 됨!
+	// main()함수 입력 받을 때만 dlst_add_back으로 받고,
+	// 나머지 연산들은 dlst_add_front여야 하는거 아님?
+
+	// op_pb(&stk_a, &stk_b);
+	// print_2_stack(&stk_a, &stk_b);
+
+	// op_pb(&stk_a, &stk_b);
+	// print_2_stack(&stk_a, &stk_b);
 
 	return (0);
 }

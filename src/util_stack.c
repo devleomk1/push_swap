@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:05:37 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/09 20:40:08 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/14 21:34:15 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ void	init_stack(t_stack *stack)
 	stack->head = NULL;
 }
 
-void	push_new(t_stack *stack, int value)
+void	push_arg(t_stack *stack, int value)
 {
-	push(stack, dlst_new(value));
+	// push(stack, dlst_new(value));
+	dlst_add_back(&stack->head, dlst_new(value));
 }
 
 void	push(t_stack *stack, t_dlst *new)
 {
-	//dlst_add_front(&stack->head, new);
-	dlst_add_back(&stack->head, new);
+	dlst_add_front(&stack->head, new);
+	// dlst_add_back(&stack->head, new);
 }
 
 t_dlst	*pop_stack(t_stack *stack)
@@ -35,6 +36,8 @@ t_dlst	*pop_stack(t_stack *stack)
 
 void	push_stack(t_stack *src, t_stack *dst)
 {
+	if (!src)
+		return ;
 	if (src->head != NULL)
 		push(dst, pop_stack(src));
 }

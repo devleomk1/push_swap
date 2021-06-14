@@ -6,7 +6,7 @@
 #    By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 17:24:47 by jisokang          #+#    #+#              #
-#    Updated: 2021/06/09 21:32:21 by jisokang         ###   ########.fr        #
+#    Updated: 2021/06/14 17:44:11 by jisokang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRC		=	push_swap.c \
 			sort.c \
 			exit.c \
 			check_lst.c \
-			init.c
+			init.c \
+			get_median.c
 
 SRCS	= $(addprefix $(SRCS_DIR),$(SRC))
 OBJS	= $(SRCS:.c=.o)

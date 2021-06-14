@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 21:07:13 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/11 20:50:10 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/14 18:13:00 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static t_dlst	*partition(t_dlst *low, t_dlst *high)
 	return i;
 }
 /**
- * _함수이름 : 코딩 규약 서브 함수
+ * _함수이름 : 서브 함수에 주로 쓰이는 이름
   */
 static void	_quick_sort(t_dlst *low, t_dlst *high)
 {
@@ -59,31 +59,18 @@ static void	_quick_sort(t_dlst *low, t_dlst *high)
 
 	if (high != NULL && low != high && low != high->next)
 	{
-		//printf("low :%d\n", low->value);
-		//printf("high:%d\n", high->value);
 		p = partition(low, high);
 		_quick_sort(low, p->prev);
 		_quick_sort(p->next, high);
 	}
 }
 
-
 void	quick_sort(t_dlst *head)
 {
 	t_dlst	*tail;
-	t_block	block;
 	tail = head->prev;
 
 	dlst_queue_cut(head);
 	_quick_sort(head, tail);
 	dlst_queue_link(head, tail);
-
-	block.len = dlst_size(head);
-	// block.min = head;
-	block.mid = dlst_count(head, (block.len / 2));
-	// block.max = tail;
-	printf ("Len : %d\n", block.len);
-	// printf ("min : %d\n", block.min->value);
-	printf ("mid : %d\n", block.mid->value);
-	// printf ("max : %d\n", block.max->value);
 }
