@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 20:47:47 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/15 21:58:07 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/15 23:55:42 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_block	*get_lst_median_val(t_dlst *head, t_block *block)
 	//printf("in get_lst_median_val\n");
 	quick_sort(head);
 	block->len = dlst_size(head);
-	block->mid = (dlst_count(head, (block->len / 2)))->value;
+	block->mid = (dlst_count(head, (block->len / 2)-1))->value;
 	dlst_clear(head);
 
 	//printf("LEN : %d\n", block->len);
