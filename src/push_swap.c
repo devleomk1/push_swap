@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/15 22:50:14 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/15 22:51:52 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,16 +137,10 @@ int	main(int argc, char **argv)
 	//t_block	block;
 
 	init_push_swap(&a, &b, argc, argv);
-	//init_block(&block);
 	print_2_stack(&a, &b);
 
 	//get_lst_median_val(a.head, &block);
 	push_swap_AtoB(&a, &b, dlst_size(a.head));
-
-/*
-	if len == 2
-	if len == 3
- */
 
 	// push()함수 잘못 됨!
 	// main()함수 입력 받을 때만 dlst_add_back으로 받고,
