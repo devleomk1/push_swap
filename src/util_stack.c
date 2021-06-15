@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:05:37 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/14 21:34:15 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:31:53 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 void	init_stack(t_stack *stack)
 {
 	stack->head = NULL;
+}
+
+void	clear_stack(t_stack *stack)
+{
+	dlst_clear(stack->head);
 }
 
 void	push_arg(t_stack *stack, int value)

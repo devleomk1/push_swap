@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/14 21:37:21 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/15 16:14:26 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,6 @@ t_dlst	*dlst_count(t_dlst *lst, size_t n)
 	curr = lst;
 	while (n > 0)
 	{
-		// printf("n = %d\n", (int)n);
 		curr = curr->next;
 		n--;
 	}
@@ -165,6 +164,53 @@ void	dlst_queue_link(t_dlst *head, t_dlst *tail)
 		head->prev = tail;
 		tail->next = head;
 	}
+}
+
+t_dlst	*dlst_new_copy(t_dlst *lst)
+{
+	t_dlst *new;
+
+	new = (t_dlst *)malloc(sizeof(t_dlst));
+	if (new == NULL)
+	{
+		printf("MALLOC_ERROR\n");
+		return (NULL);
+	}
+	new->value = lst->value;
+	return (new);
+}
+
+t_dlst	*dlst_copy_lst(t_dlst *lst)
+{
+	t_dlst	*curr;
+	t_dlst	*tmp;
+	t_dlst	*tmp2;
+
+	curr = lst;
+	tmp2 = lst;
+	while (curr->next != tmp2)
+	{
+		tmp = dlst_new_copy(curr);
+		dlst_add_back(&lst, tmp);
+		curr = curr->next;
+	}
+	return (tmp);
+}
+
+t_dlst	*copy_list(t_dlst *lst)
+{
+	t_dlst	*curr;
+	t_dlst	*cpy;
+
+	cpy = NULL;
+	curr = lst;
+	while (curr->next != lst)
+	{
+		dlst_add_back(&cpy, dlst_new(curr->value));
+		curr = curr->next;
+	}
+	dlst_add_back(&cpy, dlst_new(curr->value));
+	return (cpy);
 }
 
 /* [BEFORE] -> [NEW] -> [AFTER] */
@@ -232,3 +278,21 @@ void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2)
 	}
 }
 
+void	dlst_clear(t_dlst *head)
+{
+	t_dlst	*curr;
+	t_dlst	*next;
+
+	curr = head;
+	if (!curr)
+		return ;
+	while (1)
+	{
+		next = curr->next;
+		free(curr);
+		curr = next;
+		if (curr == head)
+			return ;
+	}
+
+}

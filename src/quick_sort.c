@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 21:07:13 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/14 18:13:00 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/15 15:48:47 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void		swap_int(int *a, int *b)
+static void	swap_int(int *a, int *b)
 {
 	int	tmp;
+
 	if (*a == *b)
 		return ;
 	tmp = *a;
@@ -48,14 +49,15 @@ static t_dlst	*partition(t_dlst *low, t_dlst *high)
 	else
 		i = i->next;
 	swap_int(&(i->value), &(high->value));
-	return i;
+	return (i);
 }
+
 /**
- * _함수이름 : 서브 함수에 주로 쓰이는 이름
-  */
+ * _function_name() : it's mean sub function.
+ */
 static void	_quick_sort(t_dlst *low, t_dlst *high)
 {
-	t_dlst *p;
+	t_dlst	*p;
 
 	if (high != NULL && low != high && low != high->next)
 	{
@@ -65,11 +67,16 @@ static void	_quick_sort(t_dlst *low, t_dlst *high)
 	}
 }
 
+/**
+ * Quick sort for Doubly linked list
+ * When a circular list comes in,
+ * head and tail are cut and reattached after sorting.
+ */
 void	quick_sort(t_dlst *head)
 {
 	t_dlst	*tail;
-	tail = head->prev;
 
+	tail = head->prev;
 	dlst_queue_cut(head);
 	_quick_sort(head, tail);
 	dlst_queue_link(head, tail);
