@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 20:36:45 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/17 04:05:10 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/17 04:13:22 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,14 @@ void	error_exit(char *message)
 	exit(0);
 }
 
-void	error_duplicate(void)
+void	error_arg(void)
 {
-	write(2, COLOR_RED"Error : Duplicate node found\n"COLOR_RESET, 39);
+	write(2, COLOR_RED"Wrong Arguments found\n"COLOR_RESET, 32);
+	exit(0);
+}
+
+void	error_dup(void)
+{
+	write(2, COLOR_RED"Duplicate node found\n"COLOR_RESET, 31);
 	exit(0);
 }

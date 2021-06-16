@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/17 04:02:20 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/17 04:29:35 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	dlst_ndoe_swap_next(t_dlst **lst);
 void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2);
 void	dlst_print(t_dlst *head);
 void	node_swap(t_dlst *lst1, t_dlst *lst2);
-void	dlst_clear(t_dlst *stack);
+void	dlst_clear(t_dlst *head);
 
 /**
  * util_stack.c
@@ -115,7 +115,8 @@ void	quick_sort(t_dlst *head);
  * files : exit.c
  */
 void	error_exit(char *message);
-void	error_duplicate(void);
+void	error_arg(void);
+void	error_dup(void);
 
 /**
  * Check lst status

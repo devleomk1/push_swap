@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 21:19:35 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/17 04:01:56 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/17 04:12:36 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	print_sort_status(t_dlst *lst)
 void	stack_status_check(t_stack *stk)
 {
 	if (is_duplicate(stk->head) == TRUE)
-		error_duplicate();
+		error_dup();
 	if (is_sort_lst(stk->head) == TRUE)
 		exit(0);
 }
