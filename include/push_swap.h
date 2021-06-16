@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/15 23:09:01 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/16 21:56:24 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,8 +138,8 @@ void	init_block(t_block *block);
  */
 t_block	*get_lst_median_val(t_dlst *head, t_block *block);
 
-void	push_swap_AtoB(t_stack *a, t_stack *b, unsigned int range);
-void	push_swap_BtoA(t_stack *a, t_stack *b, unsigned int range);
+void	push_swap_AtoB(t_stack *a, t_stack *b, int range);
+void	push_swap_BtoA(t_stack *a, t_stack *b, int range);
 
 void	case3a_021(t_stack *a, t_stack *b);
 void	case3a_201(t_stack *a, t_stack *b);
