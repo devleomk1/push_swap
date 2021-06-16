@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/16 21:56:24 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/17 04:02:20 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ typedef struct		s_stack
 	t_dlst			*head;
 }					t_stack;
 
-typedef struct		s_block
+typedef struct		s_count
 {
-	int				len;
-	int				mid;
-	int				max;
-	int				min;
-}					t_block;
+	int				ra;
+	int				pb;
+	int				rb;
+	int				pa;
+}					t_count;
 
 /**
  * util_double_list.c
@@ -115,6 +115,7 @@ void	quick_sort(t_dlst *head);
  * files : exit.c
  */
 void	error_exit(char *message);
+void	error_duplicate(void);
 
 /**
  * Check lst status
@@ -129,17 +130,20 @@ void	stack_status_check(t_stack *stk);
  * Init push_swap
  * files : init.c
  */
-void	init_push_swap(t_stack *a, t_stack *b, int argc, char **argv);
-void	init_block(t_block *block);
+void	push_swap(t_stack *a, t_stack *b, int argc, char **argv);
 
 /**
  * Get median value
  * files : get_median.c
  */
-t_block	*get_lst_median_val(t_dlst *head, t_block *block);
 
-void	push_swap_AtoB(t_stack *a, t_stack *b, int range);
-void	push_swap_BtoA(t_stack *a, t_stack *b, int range);
+int		get_mid_val(t_dlst *head, unsigned int len);
+
+void	push_sort_AtoB(t_stack *a, t_stack *b, int range);
+void	push_sort_BtoA(t_stack *a, t_stack *b, int range);
+
+int		out_range3_a(t_stack *a, t_stack *b, int range);
+int		out_range3_b(t_stack *a, t_stack *b, int range);
 
 void	case3a_021(t_stack *a, t_stack *b);
 void	case3a_201(t_stack *a, t_stack *b);
