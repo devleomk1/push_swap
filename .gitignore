@@ -1,3 +1,4 @@
 ## ETC ##
 .DS_Store
 *.o
+tester/
