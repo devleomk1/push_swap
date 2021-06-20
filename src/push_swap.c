@@ -6,11 +6,21 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 15:33:57 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 15:58:42 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+int		skip_atoi(const char **s)
+{
+	int	i;
+
+	i = 0;
+	while (ft_isdigit(**s))
+		i = i * 10 + *((*s)++) - '0';
+	return (i);
+}
 
 static int	ft_isdigit(int c)
 {
