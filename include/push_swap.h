@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/17 04:29:35 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 01:24:16 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,11 @@ void	print_2_stack(t_stack *stk1, t_stack *stk2);
 void	op_sa(t_stack *a);
 void	op_sb(t_stack *b);
 void	op_ss(t_stack *a, t_stack *b);
-void	op_pa(t_stack *a, t_stack *b);
-void	op_pb(t_stack *a, t_stack *b);
+int	op_pa(t_stack *a, t_stack *b);
+int	op_pb(t_stack *a, t_stack *b);
 
-void	op_ra(t_stack *a);
-void	op_rb(t_stack *b);
+int	op_ra(t_stack *a);
+int	op_rb(t_stack *b);
 void	op_rr(t_stack *a, t_stack *b);
 
 void	op_rra(t_stack *a);
@@ -143,8 +143,8 @@ int		get_mid_val(t_dlst *head, unsigned int len);
 void	push_sort_AtoB(t_stack *a, t_stack *b, int range);
 void	push_sort_BtoA(t_stack *a, t_stack *b, int range);
 
-int		out_range3_a(t_stack *a, t_stack *b, int range);
-int		out_range3_b(t_stack *a, t_stack *b, int range);
+int		is_out_AtoB(t_stack *a, t_stack *b, int range);
+int		is_out_BtoA(t_stack *a, t_stack *b, int range);
 
 void	case3a_021(t_stack *a, t_stack *b);
 void	case3a_201(t_stack *a, t_stack *b);
@@ -156,5 +156,8 @@ void	case3b_021(t_stack *a, t_stack *b);
 void	case3b_102(t_stack *a, t_stack *b);
 void	case3b_201(t_stack *a, t_stack *b);
 void	case3b_120(t_stack *a, t_stack *b);
+
+void	print_check_rrb(t_stack *b, t_count cnt);
+void	print_check_rra(t_stack *a, t_count cnt);
 
 # endif

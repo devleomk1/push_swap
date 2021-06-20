@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_out.c                                         :+:      :+:    :+:   */
+/*   push_sort_out.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 04:17:10 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/17 04:21:47 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 01:02:17 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	out_range3_a(t_stack *a, t_stack *b, int range)
+int	out_3_case_AtoB(t_stack *a, t_stack *b)
 {
-	int	box_a[3];
+	int	arr_a[3];
 
+	arr_a[0] = a->head->value;
+	arr_a[1] = a->head->next->value;
+	arr_a[2] = a->head->next->next->value;
+	if (arr_a[0] < arr_a[2] && arr_a[2] < arr_a[1])
+		case3a_021(a, b);
+	else if (arr_a[1] < arr_a[0] && arr_a[0] < arr_a[2])
+		op_sa(a);
+	else if (arr_a[1] < arr_a[2] && arr_a[2] < arr_a[0])
+		case3a_201(a, b);
+	else if (arr_a[2] < arr_a[0] && arr_a[0] < arr_a[1])
+		case3a_120(a, b);
+	else if (arr_a[2] < arr_a[1] && arr_a[1] < arr_a[0])
+		case3a_210(a, b);
+	return (1);
+}
+
+int	is_out_AtoB(t_stack *a, t_stack *b, int range)
+{
 	if (range <= 1)
 		return (1);
 	else if (range == 2)
@@ -25,26 +43,11 @@ int	out_range3_a(t_stack *a, t_stack *b, int range)
 		return (1);
 	}
 	else if (range == 3)
-	{
-		box_a[0] = a->head->value;
-		box_a[1] = a->head->next->value;
-		box_a[2] = a->head->next->next->value;
-		if (box_a[0] < box_a[2] && box_a[2] < box_a[1])
-			case3a_021(a, b);
-		else if (box_a[1] < box_a[0] && box_a[0] < box_a[2])
-			op_sa(a);
-		else if (box_a[1] < box_a[2] && box_a[2] < box_a[0])
-			case3a_201(a, b);
-		else if (box_a[2] < box_a[0] && box_a[0] < box_a[1])
-			case3a_120(a, b);
-		else if (box_a[2] < box_a[1] && box_a[1] < box_a[0])
-			case3a_210(a, b);
-		return (1);
-	}
+		return (out_3_case_AtoB(a, b));
 	return (0);
 }
 
-int	out_range3_b(t_stack *a, t_stack *b, int range)
+int	is_out_BtoA(t_stack *a, t_stack *b, int range)
 {
 	int		val[3];
 

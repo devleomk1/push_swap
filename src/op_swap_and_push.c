@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:30:55 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/17 20:31:17 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 01:22:47 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,17 @@ void	op_ss(t_stack *a, t_stack *b)
 	printf("ss\n");
 }
 
-void	op_pa(t_stack *a, t_stack *b)
+int	op_pa(t_stack *a, t_stack *b)
 {
 	push_stack(b, a);
 	printf("pa\n");
+	return (1);
 }
 
-void	op_pb(t_stack *a, t_stack *b)
+int	op_pb(t_stack *a, t_stack *b)
 {
 	push_stack(a, b);
 	printf("pb\n");
+	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:25:46 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/15 15:27:00 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 00:45:17 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,27 @@ void	print_stack_vertical(t_stack *stack)
 
 void	print_2_stack(t_stack *stk1, t_stack *stk2)
 {
-	printf("-----------------------\nStack A : ");
-	// print_stack(stk1);
+	printf("-----------------------\n");
+	printf("Stack A : ");
 	print_stack_lst(stk1);
 	printf("\n");
 	printf("Stack B : ");
-	// print_stack(stk2);
 	print_stack_lst(stk2);
 	printf("\n-----------------------\n");
+}
+
+void	print_check_rra(t_stack *a, t_count cnt)
+{
+	printf("======== print_check_rra ========\n");
+	printf("cnt.ra:\t%d\ncnt.pb:\t%d\n""before_rra : ", cnt.ra, cnt.pb);
+	print_stack_lst(a);
+	printf("\n=================================\n");
+}
+
+void	print_check_rrb(t_stack *b, t_count cnt)
+{
+	printf("=========print_check_rrb=========\n");
+	printf("cnt.pa:\t%d\ncnt.rb:\t%d\n""before_rrb : ", cnt.pa, cnt.rb);
+	print_stack_lst(b);
+	printf("\n=================================\n");
 }
