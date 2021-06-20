@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 20:36:45 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 15:42:48 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 18:57:16 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@
  */
 void	error_arg(void)
 {
+	// ft_putstr_fd("Error", 1);
 	ft_putstr_fd(COLOR_RED"Error : Non numeric arguments found\n"COLOR_RESET, 2);
-	exit(0);
+	exit(1);
 }
 
 /**
@@ -30,8 +31,9 @@ void	error_arg(void)
  */
 void	error_dup(void)
 {
+	// ft_putstr_fd("Error", 1);
 	ft_putstr_fd(COLOR_RED"Error : Duplicate arguments found\n"COLOR_RESET, 2);
-	exit(0);
+	exit(1);
 }
 
 /**
@@ -40,6 +42,7 @@ void	error_dup(void)
  */
 void	error_overint(void)
 {
+	// ft_putstr_fd("Error", 1);
 	ft_putstr_fd(COLOR_RED"Error : Over the INT range arguments found.\n"COLOR_RESET, 2);
-	exit(0);
+	exit(1);
 }

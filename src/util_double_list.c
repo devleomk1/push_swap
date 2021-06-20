@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/17 04:18:51 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 22:49:42 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,9 +128,11 @@ t_dlst	*dlst_count(t_dlst *lst, size_t n)
 	curr = lst;
 	while (n > 0)
 	{
+		printf("%d ->", curr->value);
 		curr = curr->next;
 		n--;
 	}
+	printf(" %d", curr->value);
 	return (curr);
 }
 
@@ -210,6 +212,22 @@ t_dlst	*copy_list(t_dlst *lst)
 		curr = curr->next;
 	}
 	dlst_add_back(&cpy, dlst_new(curr->value));
+	return (cpy);
+}
+
+t_dlst	*copy_list_2(t_dlst *lst)
+{
+	t_dlst	*curr;
+	t_dlst	*cpy;
+
+	cpy = NULL;
+	curr = lst;
+	while (curr->next != lst)
+	{
+		dlst_add_front(&cpy, dlst_new(curr->value));
+		curr = curr->next;
+	}
+	dlst_add_front(&cpy, dlst_new(curr->value));
 	return (cpy);
 }
 

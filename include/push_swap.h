@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 15:08:21 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 22:50:33 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_dlst	*dlst_last(t_dlst *lst);
 void	dlst_queue_cut(t_dlst *head);
 void	dlst_queue_link(t_dlst *head, t_dlst *tail);
 t_dlst	*copy_list(t_dlst *lst);
+t_dlst	*copy_list_2(t_dlst *lst);
 void	dlst_insert(t_dlst *before, t_dlst *new);
 void	dlst_ndoe_swap_next(t_dlst **lst);
 void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2);
@@ -110,14 +111,15 @@ void	op_rrr(t_stack *a, t_stack *b);
  */
 
 void	quick_sort(t_dlst *head);
+// void	quick_sort(t_dlst *head, int range);
 
 /**
  * Exit
  * files : exit.c
  */
-void	error_exit(char *message);
 void	error_arg(void);
 void	error_dup(void);
+void	error_overint(void);
 
 /**
  * Check lst status

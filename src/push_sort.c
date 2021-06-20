@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 02:31:49 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 15:48:11 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 23:00:29 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_count	partion_AtoB(t_stack *a, t_stack *b, int range, int pivot)
 	i = 0;
 	if (dlst_size(a->head) != cnt.ra)
 	{
-		// print_check_rra(a, cnt);
+		print_check_rra(a, cnt);
 		while (i++ < cnt.ra)
 			op_rra(a);
 	}
@@ -52,8 +52,10 @@ void	push_sort_AtoB(t_stack *a, t_stack *b, int range)
 		return ;
 	pivot = get_mid_val(copy_list(a->head), range);
 	count = partion_AtoB(a, b, range, pivot);
+	print_2_stack(a, b);
 	push_sort_AtoB(a, b, count.ra);
 	push_sort_BtoA(a, b, count.pb);
+	print_2_stack(a, b);
 }
 
 static t_count	partion_BtoA(t_stack *a, t_stack *b, int range, int pivot)
@@ -72,7 +74,7 @@ static t_count	partion_BtoA(t_stack *a, t_stack *b, int range, int pivot)
 	i = 0;
 	if (dlst_size(b->head) != cnt.rb)
 	{
-		// print_check_rrb(b, cnt);
+		print_check_rrb(b, cnt);
 		while (i++ < cnt.rb)
 			op_rrb(b);
 	}
@@ -88,6 +90,8 @@ void	push_sort_BtoA(t_stack *a, t_stack *b, int range)
 		return ;
 	pivot = get_mid_val(copy_list(b->head), range);
 	count = partion_BtoA(a, b, range, pivot);
+	print_2_stack(a, b);
 	push_sort_AtoB(a, b, count.pa);
 	push_sort_BtoA(a, b, count.rb);
+	print_2_stack(a, b);
 }
