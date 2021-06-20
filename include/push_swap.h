@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 01:24:16 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 15:08:21 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	rev_rotate_stack(t_stack *stack);
  * files : util.c, util_print.c
  */
 int		ft_atoi(const char *str);
+void	ft_putstr_fd(char *s, int fd);
 void	print_stack_lst(t_stack *stack);
 void	print_2_stack(t_stack *stk1, t_stack *stk2);
 

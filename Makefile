@@ -6,7 +6,7 @@
 #    By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 17:24:47 by jisokang          #+#    #+#              #
-#    Updated: 2021/06/20 00:46:54 by jisokang         ###   ########.fr        #
+#    Updated: 2021/06/20 15:27:08 by jisokang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ SRC		=	push_swap.c \
 			quick_sort.c \
 			exit.c \
 			check_lst.c \
-			init.c \
 			get_mid_val.c \
 			range3_a.c \
 			range3_b.c \

@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 02:31:49 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 01:24:41 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 15:48:11 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static t_count	partion_AtoB(t_stack *a, t_stack *b, int range, int pivot)
 	i = 0;
 	if (dlst_size(a->head) != cnt.ra)
 	{
-		print_check_rra(a, cnt);
+		// print_check_rra(a, cnt);
 		while (i++ < cnt.ra)
 			op_rra(a);
 	}
@@ -72,7 +72,7 @@ static t_count	partion_BtoA(t_stack *a, t_stack *b, int range, int pivot)
 	i = 0;
 	if (dlst_size(b->head) != cnt.rb)
 	{
-		print_check_rrb(b, cnt);
+		// print_check_rrb(b, cnt);
 		while (i++ < cnt.rb)
 			op_rrb(b);
 	}

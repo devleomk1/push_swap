@@ -6,11 +6,25 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 20:13:01 by jisokang          #+#    #+#             */
-/*   Updated: 2021/05/30 22:26:28 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 15:07:53 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	i;
+
+	if (s == NULL)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
 
 static int	ft_isspace(char c)
 {

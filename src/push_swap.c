@@ -6,24 +6,42 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/17 18:41:19 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/20 15:33:57 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	push_swap(t_stack *a, t_stack *b, int argc, char **argv)
+static int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}
+
+void	parse_arg(t_stack *stack, int argc, char **argv)
 {
 	int	i;
 
-	// arg가 없으면 없는걸로 끝나야지.error_arg();
 	if (argc <= 2)
 		exit(0);
+	i = 1;
+	while (argc-- > 1)
+	{
+		if (ft_isdigit(*argv[i]))
+			push_arg(stack, ft_atoi(argv[i++]));
+		else
+			error_arg();
+	}
+}
+
+void	push_swap(t_stack *a, t_stack *b, int argc, char **argv)
+{
+	// arg가 없으면 없는걸로 끝나야지.error_arg();
 	init_stack(a);
 	init_stack(b);
-	i = 1;
-	while (argv[i] != NULL)
-		push_arg(a, ft_atoi(argv[i++]));		//argv에 string으로 들어올 때도 받아야 된당
+	parse_arg(a, argc, argv);
 	stack_status_check(a);
 	push_sort_AtoB(a, b, dlst_size(a->head));
 }
