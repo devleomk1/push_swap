@@ -1,46 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_swap_and_push.c                                 :+:      :+:    :+:   */
+/*   util_stack_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 15:30:55 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 19:08:16 by jisokang         ###   ########.fr       */
+/*   Created: 2021/05/28 17:05:37 by jisokang          #+#    #+#             */
+/*   Updated: 2021/06/21 19:33:34 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	op_sa(t_stack *a)
+void	swap_stack(t_stack *stack)
 {
-	swap_stack(a);
-	ft_putstr_fd("sa\n", 1);
+	if (stack->head != NULL)
+		dlst_node_swap_next(&stack->head);
 }
 
-void	op_sb(t_stack *b)
+void	rotate_stack(t_stack *stack)
 {
-	swap_stack(b);
-	ft_putstr_fd("sb\n", 1);
+	if (stack != NULL || stack->head == stack->head->prev)
+		stack->head = stack->head->next;
 }
 
-void	op_ss(t_stack *a, t_stack *b)
+void	rev_rotate_stack(t_stack *stack)
 {
-	swap_stack(a);
-	swap_stack(b);
-	ft_putstr_fd("ss\n", 1);
-}
-
-int	op_pa(t_stack *a, t_stack *b)
-{
-	push_stack(b, a);
-	ft_putstr_fd("pa\n", 1);
-	return (1);
-}
-
-int	op_pb(t_stack *a, t_stack *b)
-{
-	push_stack(a, b);
-	ft_putstr_fd("pb\n", 1);
-	return (1);
+	if (stack != NULL || stack->head == stack->head->prev)
+		stack->head = stack->head->prev;
 }

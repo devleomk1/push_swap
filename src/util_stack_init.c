@@ -1,46 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_swap_and_push.c                                 :+:      :+:    :+:   */
+/*   util_stack_init.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 15:30:55 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 19:08:16 by jisokang         ###   ########.fr       */
+/*   Created: 2021/06/21 18:55:30 by jisokang          #+#    #+#             */
+/*   Updated: 2021/06/21 19:05:13 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	op_sa(t_stack *a)
+void	init_stack(t_stack *stack)
 {
-	swap_stack(a);
-	ft_putstr_fd("sa\n", 1);
+	stack->head = NULL;
 }
 
-void	op_sb(t_stack *b)
+void	clear_stack(t_stack *stack)
 {
-	swap_stack(b);
-	ft_putstr_fd("sb\n", 1);
-}
-
-void	op_ss(t_stack *a, t_stack *b)
-{
-	swap_stack(a);
-	swap_stack(b);
-	ft_putstr_fd("ss\n", 1);
-}
-
-int	op_pa(t_stack *a, t_stack *b)
-{
-	push_stack(b, a);
-	ft_putstr_fd("pa\n", 1);
-	return (1);
-}
-
-int	op_pb(t_stack *a, t_stack *b)
-{
-	push_stack(a, b);
-	ft_putstr_fd("pb\n", 1);
-	return (1);
+	dlst_clear(stack->head);
 }

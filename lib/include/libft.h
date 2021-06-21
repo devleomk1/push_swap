@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 07:05:12 by jisokang          #+#    #+#             */
-/*   Updated: 2021/02/20 19:57:05 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 19:41:12 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 	void (*del)(void *));
 char				**ft_split(char const *s, char c);
+void				ft_swap_int(int *a, int*b);
 
 #endif

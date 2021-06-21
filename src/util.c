@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 20:13:01 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 18:17:29 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 19:10:28 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,33 @@ int	ft_atoi_pushswap(const char *str)
 		i++;
 	}
 	return (sign * result);
+}
+
+t_dlst	*lst_count(t_dlst *lst, size_t n)
+{
+	t_dlst	*curr;
+
+	if (lst == NULL)
+		return (0);
+	curr = lst;
+	while (n > 0)
+	{
+		curr = curr->next;
+		n--;
+	}
+	return (curr);
+}
+
+void	print_lst_nul(t_dlst *head)
+{
+	t_dlst	*curr;
+
+	curr = head;
+	while (curr->next != NULL)
+	{
+		ft_printf("%d ", curr->value);
+		curr = curr->next;
+	}
+	ft_printf("%d ", curr->value);
+	ft_printf("\n");
 }

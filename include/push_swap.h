@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 18:19:45 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 19:43:18 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
  * 1 : print stack
  * 0 : non print stack
  * */
-# define OPTION	0
+# define OPTION	1
 
 typedef struct		s_dlst
 {
@@ -67,7 +67,7 @@ void	dlst_queue_link(t_dlst *head, t_dlst *tail);
 t_dlst	*copy_list(t_dlst *lst);
 t_dlst	*copy_list_2(t_dlst *lst);
 void	dlst_insert(t_dlst *before, t_dlst *new);
-void	dlst_ndoe_swap_next(t_dlst **lst);
+void	dlst_node_swap_next(t_dlst **lst);
 void	dlst_node_swap(t_dlst *lst1, t_dlst *lst2);
 void	dlst_print(t_dlst *head);
 void	node_swap(t_dlst *lst1, t_dlst *lst2);
@@ -92,8 +92,8 @@ void	rev_rotate_stack(t_stack *stack);
  */
 //int		ft_atoi(const char *str);
 void	ft_putstr_fd(char *s, int fd);
-void	print_stack_lst(t_stack *stack);
-void	print_2_stack(t_stack *stk1, t_stack *stk2, int opt);
+void	print_stack(t_stack *stack);
+void	print_stack_all(t_stack *stk1, t_stack *stk2, int opt);
 int		ft_atoi_pushswap(const char *str);
 
 /**
@@ -166,8 +166,5 @@ void	case3b_021(t_stack *a, t_stack *b);
 void	case3b_102(t_stack *a, t_stack *b);
 void	case3b_201(t_stack *a, t_stack *b);
 void	case3b_120(t_stack *a, t_stack *b);
-
-void	print_check_rrb(t_stack *b, t_count cnt);
-void	print_check_rra(t_stack *a, t_count cnt);
 
 # endif

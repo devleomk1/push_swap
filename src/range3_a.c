@@ -6,13 +6,16 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 22:53:54 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/15 23:24:36 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 19:10:15 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void		case3a_021(t_stack *a, t_stack *b)
+/**
+ * A : 0 2 1
+ */
+void	case3a_021(t_stack *a, t_stack *b)
 {
 	(void)b;
 	op_ra(a);
@@ -20,7 +23,10 @@ void		case3a_021(t_stack *a, t_stack *b)
 	op_rra(a);
 }
 
-void		case3a_201(t_stack *a, t_stack *b)
+/**
+ * A : 2 0 1
+ */
+void	case3a_201(t_stack *a, t_stack *b)
 {
 	(void)b;
 	if (dlst_size(a->head) == 3)
@@ -34,7 +40,10 @@ void		case3a_201(t_stack *a, t_stack *b)
 	}
 }
 
-void		case3a_120(t_stack *a, t_stack *b)
+/**
+ * A : 1 2 0
+ */
+void	case3a_120(t_stack *a, t_stack *b)
 {
 	if (dlst_size(a->head) == 3)
 		op_rra(a);
@@ -49,7 +58,10 @@ void		case3a_120(t_stack *a, t_stack *b)
 	}
 }
 
-void		case3a_210(t_stack *a, t_stack *b)
+/**
+ * A : 2 1 0
+ */
+void	case3a_210(t_stack *a, t_stack *b)
 {
 	(void)b;
 	if (dlst_size(a->head) == 3)

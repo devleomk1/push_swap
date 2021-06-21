@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile_                                          :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/19 15:58:12 by sashin            #+#    #+#              #
-#    Updated: 2021/06/21 16:34:14 by jisokang         ###   ########.fr        #
+#    Updated: 2021/06/21 19:47:08 by jisokang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ LIBFT			= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 				ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c \
 				ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 				ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-				ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+				ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_swap_int.c
 
 FT_PRINTF		= ft_printf.c ft_printf_char.c ft_printf_num_print.c \
 				ft_printf_num.c ft_printf_parse.c ft_printf_string.c \
