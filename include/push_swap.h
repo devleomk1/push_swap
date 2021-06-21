@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/22 01:54:23 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 03:01:51 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 # include "printf_color.h"
 # include "../lib/include/libft.h"
