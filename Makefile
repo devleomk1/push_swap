@@ -6,7 +6,7 @@
 #    By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 17:24:47 by jisokang          #+#    #+#              #
-#    Updated: 2021/06/21 19:49:24 by jisokang         ###   ########.fr        #
+#    Updated: 2021/06/21 20:36:41 by jisokang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,17 +24,15 @@ LIB_DIR		=	./lib/
 LIB_NAME	=	lib_jisokang.a
 
 SRC		=	push_swap.c \
-			util_dlst_0.c util_dlst_1.c util_dlst_2.c util_dlst_3.c \
+			util_dlst_0.c util_dlst_1.c util_dlst_2.c util_dlst_3.c util_dlst_4.c \
 			util_stack_0.c util_stack_1.c util_stack_init.c util.c util_print.c \
 			op_swap_and_push.c op_rotate.c op_rev_rotate.c \
 			quick_sort.c \
 			error.c \
 			check_stack.c \
-			get_mid_val.c \
 			range3_a.c \
 			range3_b.c \
-			push_sort.c \
-			push_sort_out.c
+			push_sort.c push_sort_out.c\
 
 SRCS	= $(addprefix $(SRCS_DIR), $(OBJS))
 LIBS	= $(addprefix $(LIB_DIR), $(LIB_NAME))
