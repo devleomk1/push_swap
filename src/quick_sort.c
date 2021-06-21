@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 21:07:13 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 16:14:30 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 18:00:24 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,7 @@ t_dlst	*lst_count(t_dlst *lst, size_t n)
 	t_dlst	*curr;
 
 	if (lst == NULL)
-	{
-		printf("count error\n");
 		return (0);
-	}
 	curr = lst;
 	while (n > 0)
 	{
@@ -103,13 +100,13 @@ t_dlst	*lst_count(t_dlst *lst, size_t n)
 void	print_lst_nul(t_dlst *head)
 {
 	t_dlst *curr;
-	printf("HERE!\n");
+
 	curr = head;
 	while (curr->next != NULL)
 	{
-		printf("%d ", curr->value);
+		ft_printf("%d ", curr->value);
 		curr = curr->next;
 	}
-	printf("%d ", curr->value);
-	printf("\n");
+	ft_printf("%d ", curr->value);
+	ft_printf("\n");
 }

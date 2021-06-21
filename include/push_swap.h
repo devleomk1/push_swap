@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 17:51:31 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 18:19:45 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,17 @@
 
 # include "printf_color.h"
 # include "../lib/include/libft.h"
+# include "../lib/include/ft_printf.h"
 
-# define TRUE 1
-# define FALSE 0
+# define TRUE	1
+# define FALSE	0
+
+/**
+ * PRINT OPTION
+ * 1 : print stack
+ * 0 : non print stack
+ * */
+# define OPTION	0
 
 typedef struct		s_dlst
 {
@@ -85,7 +93,7 @@ void	rev_rotate_stack(t_stack *stack);
 //int		ft_atoi(const char *str);
 void	ft_putstr_fd(char *s, int fd);
 void	print_stack_lst(t_stack *stack);
-void	print_2_stack(t_stack *stk1, t_stack *stk2);
+void	print_2_stack(t_stack *stk1, t_stack *stk2, int opt);
 int		ft_atoi_pushswap(const char *str);
 
 /**
@@ -127,10 +135,7 @@ void	error_overint(void);
  * Check lst status
  * files : check_sort.c
  */
-int		is_sort_lst(t_dlst *lst);
-int		is_duplicate(t_dlst *lst);
-void	print_sort_status(t_dlst *lst);
-void	stack_status_check(t_stack *stk);
+void	check_stack(t_stack *stk);
 
 /**
  * Init push_swap

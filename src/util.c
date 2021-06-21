@@ -6,33 +6,11 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 20:13:01 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 17:50:10 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 18:17:29 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-//void	ft_putstr_fd(char *s, int fd)
-//{
-//	size_t	i;
-
-//	if (s == NULL)
-//		return ;
-//	i = 0;
-//	while (s[i] != '\0')
-//	{
-//		write(fd, &s[i], 1);
-//		i++;
-//	}
-//}
-
-//static int	ft_isdigit(int c)
-//{
-//	if (c >= '0' && c <= '9')
-//		return (1);
-//	else
-//		return (0);
-//}
 
 static int	ft_isspace(char c)
 {

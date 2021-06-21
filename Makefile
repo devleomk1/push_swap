@@ -6,7 +6,7 @@
 #    By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 17:24:47 by jisokang          #+#    #+#              #
-#    Updated: 2021/06/21 17:52:39 by jisokang         ###   ########.fr        #
+#    Updated: 2021/06/21 17:56:31 by jisokang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ $(NAME) : $(SRCS) $(LIBS)
 
 clean :
 	make clean -C $(LIB_DIR)
-	$(RM) $(OBJS)
+	$(RM) $(SRCS)
 
 fclean : clean
 	make fclean -C $(LIB_DIR)

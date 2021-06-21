@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/15 15:25:46 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 20:42:30 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 18:09:12 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,18 @@ void	print_stack_vertical(t_stack *stack)
 	}
 }
 
-void	print_2_stack(t_stack *stk1, t_stack *stk2)
+void	print_2_stack(t_stack *stk1, t_stack *stk2, int opt)
 {
-	printf("-----------------------\n");
-	printf("Stack A : ");
-	print_stack_lst(stk1);
-	printf("\n");
-	printf("Stack B : ");
-	print_stack_lst(stk2);
-	printf("\n-----------------------\n");
+	if (opt)
+	{
+		ft_printf("-----------------------\n");
+		ft_printf("A : ");
+		print_stack_lst(stk1);
+		ft_printf("\n");
+		ft_printf("B : ");
+		print_stack_lst(stk2);
+		ft_printf("\n-----------------------\n");
+	}
 }
 
 void	print_check_rra(t_stack *a, t_count cnt)

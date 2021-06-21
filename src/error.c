@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 20:36:45 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 17:16:01 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 18:21:55 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	error_dup(void)
 /**
  * Check MAXINT
  * ex : "2147483648 1 2 3"
+ * fd = 2 is stderr
  */
 void	error_overint(void)
 {

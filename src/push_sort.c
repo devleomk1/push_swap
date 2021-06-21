@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 02:31:49 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 23:00:29 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 18:10:03 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void	push_sort_AtoB(t_stack *a, t_stack *b, int range)
 		return ;
 	pivot = get_mid_val(copy_list(a->head), range);
 	count = partion_AtoB(a, b, range, pivot);
-	print_2_stack(a, b);
+	print_2_stack(a, b, OPTION);
 	push_sort_AtoB(a, b, count.ra);
 	push_sort_BtoA(a, b, count.pb);
-	print_2_stack(a, b);
+	print_2_stack(a, b, OPTION);
 }
 
 static t_count	partion_BtoA(t_stack *a, t_stack *b, int range, int pivot)
@@ -90,8 +90,8 @@ void	push_sort_BtoA(t_stack *a, t_stack *b, int range)
 		return ;
 	pivot = get_mid_val(copy_list(b->head), range);
 	count = partion_BtoA(a, b, range, pivot);
-	print_2_stack(a, b);
+	print_2_stack(a, b, OPTION);
 	push_sort_AtoB(a, b, count.pa);
 	push_sort_BtoA(a, b, count.rb);
-	print_2_stack(a, b);
+	print_2_stack(a, b, OPTION);
 }

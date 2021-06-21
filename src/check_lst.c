@@ -6,13 +6,13 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 21:19:35 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 15:59:26 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 18:19:45 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int	is_sort_lst(t_dlst *lst)
+static int	is_sort_lst(t_dlst *lst)
 {
 	t_dlst	*curr;
 
@@ -28,7 +28,7 @@ int	is_sort_lst(t_dlst *lst)
 	return (TRUE);
 }
 
-int	is_duplicate(t_dlst *lst)
+static int	is_duplicate(t_dlst *lst)
 {
 	t_dlst	*tmp;
 	t_dlst	*curr;
@@ -52,7 +52,7 @@ int	is_duplicate(t_dlst *lst)
 	return (FALSE);
 }
 
-void	stack_status_check(t_stack *stk)
+void	check_stack(t_stack *stk)
 {
 	if (is_duplicate(stk->head) == TRUE)
 		error_dup();

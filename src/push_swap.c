@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 17:51:33 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 18:19:45 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	push_swap(t_stack *a, t_stack *b, int argc, char **argv)
 	i = 1;
 	while (argc-- > 1)
 		push_arg(a, ft_atoi_pushswap(argv[i++]));
-	stack_status_check(a);
+	check_stack(a);
 	push_sort_AtoB(a, b, dlst_size(a->head));
 }
 
