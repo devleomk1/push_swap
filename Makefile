@@ -6,7 +6,7 @@
 #    By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 17:24:47 by jisokang          #+#    #+#              #
-#    Updated: 2021/06/20 23:03:15 by jisokang         ###   ########.fr        #
+#    Updated: 2021/06/21 17:52:39 by jisokang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,9 @@ RM		=	rm -f
 INCS_DIR	=	./include/
 SRCS_DIR	=	./src/
 
+LIB_DIR		=	./lib/
+LIB_NAME	=	lib_jisokang.a
+
 SRC		=	push_swap.c \
 			util_double_list.c \
 			util_stack.c \
@@ -29,7 +32,7 @@ SRC		=	push_swap.c \
 			op_rotate.c \
 			op_rev_rotate.c \
 			quick_sort.c \
-			exit.c \
+			error.c \
 			check_lst.c \
 			get_mid_val.c \
 			range3_a.c \
@@ -37,28 +40,35 @@ SRC		=	push_swap.c \
 			push_sort.c \
 			push_sort_out.c
 
-SRCS	= $(addprefix $(SRCS_DIR),$(SRC))
-OBJS	= $(SRCS:.c=.o)
+SRCS	= $(addprefix $(SRCS_DIR), $(OBJS))
+LIBS	= $(addprefix $(LIB_DIR), $(LIB_NAME))
+OBJS	= $(SRC:.c=.o)
 
-.c.o:
-	$(CC) $(CFLAGS) -I $(INCS_DIR) -o $@ -c $?
+#	make -C $(LIB_DIR)
 #	$(CC) $(CFLAGS) -c $< -I $(INCS_DIR)
 # gcc option
 # -c 		: 오브젝트 파일 생성
 # -I <dir>	: 참조할 헤더파일의 주소를 추가
 # -o		: 실행파일을 만든다.
 
-$(NAME) : $(OBJS)
-	$(CC) -o $(NAME) $(OBJS) -I $(INCS_DIR)
 
-bonus :
+all : $(LIB_NAME) $(NAME)
 
-all : $(NAME)
+$(LIB_NAME) :
+	make -C $(LIB_DIR)
+
+#$(NAME) :
+#	$(CC) -o $(NAME) $(OBJS) -I $(INCS_DIR)
+
+$(NAME) : $(SRCS) $(LIBS)
+	$(CC) $(CFLAGS) $^ -o $@
 
 clean :
+	make clean -C $(LIB_DIR)
 	$(RM) $(OBJS)
 
 fclean : clean
+	make fclean -C $(LIB_DIR)
 	$(RM) $(NAME)
 
 re : clean all

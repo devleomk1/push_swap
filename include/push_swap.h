@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 22:50:33 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 17:51:31 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 
 # include "printf_color.h"
+# include "../lib/include/libft.h"
 
 # define TRUE 1
 # define FALSE 0
@@ -81,10 +82,11 @@ void	rev_rotate_stack(t_stack *stack);
  * Utils
  * files : util.c, util_print.c
  */
-int		ft_atoi(const char *str);
+//int		ft_atoi(const char *str);
 void	ft_putstr_fd(char *s, int fd);
 void	print_stack_lst(t_stack *stack);
 void	print_2_stack(t_stack *stk1, t_stack *stk2);
+int		ft_atoi_pushswap(const char *str);
 
 /**
  * Operations

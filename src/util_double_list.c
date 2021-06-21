@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 16:59:09 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/20 22:49:42 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 16:08:18 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_dlst	*dlst_new(int value)
 	new = (t_dlst *)malloc(sizeof(t_dlst));
 	if (new == NULL)
 	{
-		write(2, "Malloc error\n", 14);
+		ft_putstr_fd("Malloc error\n", 2);
 		return (NULL);
 	}
 	new->value = value;
