@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 21:19:35 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/17 04:12:36 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/21 15:59:26 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,11 @@ int	is_duplicate(t_dlst *lst)
 				return (TRUE);
 			tmp = tmp->next;
 		}
+		if (curr->value == tmp->value)
+			return (TRUE);
 		curr = curr->next;
 	}
 	return (FALSE);
-}
-
-void	print_sort_status(t_dlst *lst)
-{
-	if (is_duplicate(lst) == TRUE)
-		printf("Dupl\t: " COLOR_RED "KO\n" COLOR_RESET);
-	else
-		printf("Dupl\t: " COLOR_GREEN "OK\n" COLOR_RESET);
-	if (is_sort_lst(lst) == TRUE)
-		printf("Sort\t: " COLOR_GREEN "OK\n" COLOR_RESET);
-	else
-		printf("Sort\t: " COLOR_RED "KO\n" COLOR_RESET);
 }
 
 void	stack_status_check(t_stack *stk)
