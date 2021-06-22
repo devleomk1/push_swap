@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_lst.c                                        :+:      :+:    :+:   */
+/*   check_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 21:19:35 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 18:19:45 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:07:07 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int	is_duplicate(t_dlst *lst)
 	return (FALSE);
 }
 
-void	check_stack(t_stack *stk)
+void		check_stack(t_stack *stk)
 {
 	if (is_duplicate(stk->head) == TRUE)
 		error_dup();

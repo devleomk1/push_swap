@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:31 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/22 03:15:28 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 09:59:57 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,25 @@
 # define TRUE	1
 # define FALSE	0
 
-/**
- * 1 : print stack
- * 0 : non print
- * */
+/*
+** 1 : print stack
+** 0 : non print
+*/
 # define OPTION	0
 
-typedef struct s_dlst
+typedef struct		s_dlst
 {
 	int				value;
 	struct s_dlst	*prev;
 	struct s_dlst	*next;
 }					t_dlst;
 
-typedef struct s_stack
+typedef struct		s_stack
 {
 	t_dlst			*head;
 }					t_stack;
 
-typedef struct s_count
+typedef struct		s_count
 {
 	int				ra;
 	int				pb;
@@ -49,18 +49,18 @@ typedef struct s_count
 	int				pa;
 }					t_count;
 
-/**
- * Main function
- * files : push_swap.c
- */
+/*
+** Main function
+** files : push_swap.c
+*/
 
 void				push_swap(t_stack *a, t_stack *b, int argc, char **argv);
 
-/**
- * Double List util
- * files :	util_dlst_0.c util_dlst_1.c
- * 			util_dlst_2.c util_dlst_3.c util_dlst_4.c
- */
+/*
+** Double List util
+** files :	util_dlst_0.c util_dlst_1.c
+** 			util_dlst_2.c util_dlst_3.c util_dlst_4.c
+*/
 
 t_dlst				*dlst_new(int value);
 void				dlst_clear(t_dlst *head);
@@ -84,9 +84,9 @@ t_dlst				*dlst_new_copy(t_dlst *lst);
 t_dlst				*dlst_copy_lst(t_dlst *lst);
 t_dlst				*copy_list(t_dlst *lst);
 
-/**
- * util_stack.c
- */
+/*
+** util_stack.c
+*/
 
 void				init_stack(t_stack *stack);
 void				clear_stack(t_stack *stack);
@@ -98,20 +98,20 @@ void				swap_stack(t_stack *stack);
 void				rotate_stack(t_stack *stack);
 void				rev_rotate_stack(t_stack *stack);
 
-/**
- * Utils
- * files : util.c, util_print.c
- */
+/*
+** Utils
+** files : util.c, util_print.c
+*/
 
 void				ft_putstr_fd(char *s, int fd);
 void				print_stack(t_stack *stack);
 void				print_stack_all(t_stack *stk1, t_stack *stk2, int opt);
 int					ft_atoi_pushswap(const char *str);
 
-/**
- * Operations
- * files : op_swap_and_push.c, op_rotate.c, op_rev_rotate.c
- */
+/*
+** Operations
+** files : op_swap_and_push.c, op_rotate.c, op_rev_rotate.c
+*/
 
 void				op_sa(t_stack *a);
 void				op_sb(t_stack *b);
@@ -127,43 +127,44 @@ void				op_rra(t_stack *a);
 void				op_rrb(t_stack *b);
 void				op_rrr(t_stack *a, t_stack *b);
 
-/**
- * Quick_sort
- * files: quick_sort.c
- */
+/*
+** Quick_sort
+** files: quick_sort.c
+*/
 
 void				quick_sort(t_dlst *head);
 int					get_mid_val(t_dlst *head, unsigned int len);
 
-/**
- * Error check
- * files : error.c
- */
+/*
+** Error check
+** files : error.c
+*/
+
 void				error_arg(void);
 void				error_dup(void);
 void				error_overint(void);
 
-/**
- * Check lst status
- * files : check_stack.c
- */
+/*
+** Check lst status
+** files : check_stack.c
+*/
 void				check_stack(t_stack *stk);
 
-/**
- * Push sort
- * files :
- */
+/*
+** Push sort
+** files : push_sort_out.c
+*/
 
-void				push_sort_AtoB(t_stack *a, t_stack *b, int range);
-void				push_sort_BtoA(t_stack *a, t_stack *b, int range);
+void				push_sort_atob(t_stack *a, t_stack *b, int range);
+void				push_sort_btoa(t_stack *a, t_stack *b, int range);
 
-int					is_out_AtoB(t_stack *a, t_stack *b, int range);
-int					is_out_BtoA(t_stack *a, t_stack *b, int range);
+int					is_out_atob(t_stack *a, t_stack *b, int range);
+int					is_out_btoa(t_stack *a, t_stack *b, int range);
 
-/**
- * Out case
- * files :
- */
+/*
+** Out case
+** files :
+*/
 
 void				case3a_021(t_stack *a, t_stack *b);
 void				case3a_201(t_stack *a, t_stack *b);

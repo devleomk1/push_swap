@@ -6,17 +6,13 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 19:13:24 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 19:28:02 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:13:44 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/**
- * Function to find the length of
- * a circularly linked list.
- */
-int	dlst_size(t_dlst *lst)
+int		dlst_size(t_dlst *lst)
 {
 	int		i;
 	t_dlst	*curr;
@@ -33,9 +29,6 @@ int	dlst_size(t_dlst *lst)
 	return (i);
 }
 
-/**
- * Return the 'n'th node from the head of lst.
- */
 t_dlst	*dlst_count(t_dlst *lst, size_t n)
 {
 	t_dlst	*curr;
@@ -51,9 +44,6 @@ t_dlst	*dlst_count(t_dlst *lst, size_t n)
 	return (curr);
 }
 
-/**
- * Function to find last node of linked list
- */
 t_dlst	*dlst_last(t_dlst *head)
 {
 	t_dlst	*tmp;

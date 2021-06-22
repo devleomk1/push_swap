@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 17:28:15 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 18:19:45 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:06:51 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ void	push_swap(t_stack *a, t_stack *b, int argc, char **argv)
 	while (argc-- > 1)
 		push_arg(a, ft_atoi_pushswap(argv[i++]));
 	check_stack(a);
-	push_sort_AtoB(a, b, dlst_size(a->head));
+	push_sort_atob(a, b, dlst_size(a->head));
 }
 
-int	main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;

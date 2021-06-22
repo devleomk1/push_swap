@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 21:07:13 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 20:32:51 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:13:30 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,37 +41,29 @@ static t_dlst	*partition(t_dlst *low, t_dlst *high)
 	return (i);
 }
 
-/**
- * _function_name() : it's mean sub function.
- */
-static void	_quick_sort(t_dlst *low, t_dlst *high)
+static void		sub_quick_sort(t_dlst *low, t_dlst *high)
 {
 	t_dlst	*p;
 
 	if (high != NULL && low != high && low != high->next)
 	{
 		p = partition(low, high);
-		_quick_sort(low, p->prev);
-		_quick_sort(p->next, high);
+		sub_quick_sort(low, p->prev);
+		sub_quick_sort(p->next, high);
 	}
 }
 
-/**
- * Quick sort for Doubly linked list
- * When a circular list comes in,
- * head and tail are cut and reattached after sorting.
- */
-void	quick_sort(t_dlst *head)
+void			quick_sort(t_dlst *head)
 {
 	t_dlst	*tail;
 
 	tail = dlst_last(head);
 	dlst_queue_cut(head);
-	_quick_sort(head, tail);
+	sub_quick_sort(head, tail);
 	dlst_queue_link(head, tail);
 }
 
-int	get_mid_val(t_dlst *head, unsigned int range)
+int				get_mid_val(t_dlst *head, unsigned int range)
 {
 	int	value;
 

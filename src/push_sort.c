@@ -6,13 +6,13 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 02:31:49 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 19:32:18 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:12:07 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	init_count(t_count *cnt)
+static void		init_count(t_count *cnt)
 {
 	cnt->ra = 0;
 	cnt->pb = 0;
@@ -20,7 +20,7 @@ static void	init_count(t_count *cnt)
 	cnt->pa = 0;
 }
 
-static t_count	partion_AtoB(t_stack *a, t_stack *b, int range, int pivot)
+static t_count	partion_atob(t_stack *a, t_stack *b, int range, int pivot)
 {
 	int			i;
 	t_count		cnt;
@@ -42,22 +42,22 @@ static t_count	partion_AtoB(t_stack *a, t_stack *b, int range, int pivot)
 	return (cnt);
 }
 
-void	push_sort_AtoB(t_stack *a, t_stack *b, int range)
+void			push_sort_atob(t_stack *a, t_stack *b, int range)
 {
 	int		pivot;
 	t_count	count;
 
-	if (is_out_AtoB(a, b, range) == TRUE)
+	if (is_out_atob(a, b, range) == TRUE)
 		return ;
 	pivot = get_mid_val(copy_list(a->head), range);
-	count = partion_AtoB(a, b, range, pivot);
+	count = partion_atob(a, b, range, pivot);
 	print_stack_all(a, b, OPTION);
-	push_sort_AtoB(a, b, count.ra);
-	push_sort_BtoA(a, b, count.pb);
+	push_sort_atob(a, b, count.ra);
+	push_sort_btoa(a, b, count.pb);
 	print_stack_all(a, b, OPTION);
 }
 
-static t_count	partion_BtoA(t_stack *a, t_stack *b, int range, int pivot)
+static t_count	partion_btoa(t_stack *a, t_stack *b, int range, int pivot)
 {
 	int			i;
 	t_count		cnt;
@@ -79,17 +79,17 @@ static t_count	partion_BtoA(t_stack *a, t_stack *b, int range, int pivot)
 	return (cnt);
 }
 
-void	push_sort_BtoA(t_stack *a, t_stack *b, int range)
+void			push_sort_btoa(t_stack *a, t_stack *b, int range)
 {
 	int		pivot;
 	t_count	count;
 
-	if (is_out_BtoA(a, b, range) == TRUE)
+	if (is_out_btoa(a, b, range) == TRUE)
 		return ;
 	pivot = get_mid_val(copy_list(b->head), range);
-	count = partion_BtoA(a, b, range, pivot);
+	count = partion_btoa(a, b, range, pivot);
 	print_stack_all(a, b, OPTION);
-	push_sort_AtoB(a, b, count.pa);
-	push_sort_BtoA(a, b, count.rb);
+	push_sort_atob(a, b, count.pa);
+	push_sort_btoa(a, b, count.rb);
 	print_stack_all(a, b, OPTION);
 }

@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 20:13:01 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 19:10:28 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:07:47 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 static int	ft_isspace(char c)
 {
-	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r' || c == ' ')
+	if (c == '\t' || c == '\n' || c == '\v' ||
+		c == '\f' || c == '\r' || c == ' ')
 		return (1);
 	else
 		return (0);
 }
 
-int	ft_atoi_pushswap(const char *str)
+int			ft_atoi_pushswap(const char *str)
 {
 	long	sign;
 	long	result;
@@ -48,7 +49,7 @@ int	ft_atoi_pushswap(const char *str)
 	return (sign * result);
 }
 
-t_dlst	*lst_count(t_dlst *lst, size_t n)
+t_dlst		*lst_count(t_dlst *lst, size_t n)
 {
 	t_dlst	*curr;
 
@@ -63,7 +64,7 @@ t_dlst	*lst_count(t_dlst *lst, size_t n)
 	return (curr);
 }
 
-void	print_lst_nul(t_dlst *head)
+void		print_lst_nul(t_dlst *head)
 {
 	t_dlst	*curr;
 

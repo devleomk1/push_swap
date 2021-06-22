@@ -6,17 +6,12 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 20:36:45 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 20:08:27 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:02:48 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/**
- * Check non numeric parameter
- * ex: "3 2 one 0"
- * fd = 2 is stderr
- */
 void	error_arg(void)
 {
 	ft_putstr_fd(COLOR_RED
@@ -25,11 +20,6 @@ void	error_arg(void)
 	exit(1);
 }
 
-/**
- * Check duplicate numeric parameter
- * ex : "3 2 1 1"
- * fd = 2 is stderr
- */
 void	error_dup(void)
 {
 	ft_putstr_fd(COLOR_RED
@@ -38,11 +28,6 @@ void	error_dup(void)
 	exit(1);
 }
 
-/**
- * Check MAXINT
- * ex : "2147483648 1 2 3"
- * fd = 2 is stderr
- */
 void	error_overint(void)
 {
 	ft_putstr_fd(COLOR_RED

@@ -6,16 +6,12 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 19:33:02 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 19:46:16 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:04:51 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/**
- * *lst head 앞에 새 노드 *new를 추가하고
- * head를 *new로 변경하는 함수
- */
 void	dlst_add_front(t_dlst **lst, t_dlst *new)
 {
 	if (new == NULL)
@@ -30,10 +26,6 @@ void	dlst_add_front(t_dlst **lst, t_dlst *new)
 	*lst = new;
 }
 
-/**
- * *lst tail 뒤에 새 노드 *new를 추가하는 함수
- * *lst가 없으면 *new를 lst의 head로 준다.
- */
 void	dlst_add_back(t_dlst **lst, t_dlst *new)
 {
 	if (new == NULL)

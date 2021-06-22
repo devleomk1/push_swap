@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 16:37:49 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 16:40:26 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:14:37 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,6 @@ int		ft_parse_symbols(const char *format, va_list ap)
 	int			printed;
 
 	printed = 0;
-	//info = malloc(sizeof(t_info) * 1);
-	// if (!info)
-	// 	return (ERROR);		//굳이 malloc으로 메모리 할당을 하지 않아도 된다.
 	while (*format != 0)
 	{
 		init_struct(&info);
@@ -49,7 +46,6 @@ int		ft_parse_symbols(const char *format, va_list ap)
 			printed += write(1, format, 1);
 		format++;
 	}
-	// free(info);
 	return (printed);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 15:30:55 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 19:08:16 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/22 10:07:19 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	op_ss(t_stack *a, t_stack *b)
 	ft_putstr_fd("ss\n", 1);
 }
 
-int	op_pa(t_stack *a, t_stack *b)
+int		op_pa(t_stack *a, t_stack *b)
 {
 	push_stack(b, a);
 	ft_putstr_fd("pa\n", 1);
 	return (1);
 }
 
-int	op_pb(t_stack *a, t_stack *b)
+int		op_pb(t_stack *a, t_stack *b)
 {
 	push_stack(a, b);
 	ft_putstr_fd("pb\n", 1);
