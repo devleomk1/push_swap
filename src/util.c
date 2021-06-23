@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 20:13:01 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/21 19:10:28 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/06/23 14:16:50 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_isspace(char c)
 		return (0);
 }
 
-int	ft_atoi_pushswap(const char *str)
+int			ft_atoi_pushswap(const char *str)
 {
 	long	sign;
 	long	result;
@@ -45,6 +45,8 @@ int	ft_atoi_pushswap(const char *str)
 			error_overint();
 		i++;
 	}
+	if (!ft_isdigit(str[i]))
+		error_arg();
 	return (sign * result);
 }
 
