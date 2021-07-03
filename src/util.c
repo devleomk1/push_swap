@@ -6,7 +6,7 @@
 /*   By: jisokang <jisokang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/29 20:13:01 by jisokang          #+#    #+#             */
-/*   Updated: 2021/06/23 14:16:50 by jisokang         ###   ########.fr       */
+/*   Updated: 2021/07/03 17:54:46 by jisokang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int			ft_atoi_pushswap(const char *str)
 		sign = -1;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
+	if (!ft_isdigit(str[i]))
+		error_arg();
 	while (str[i] != '\0')
 	{
 		if (!ft_isdigit(str[i]))
@@ -45,8 +47,6 @@ int			ft_atoi_pushswap(const char *str)
 			error_overint();
 		i++;
 	}
-	if (!ft_isdigit(str[i]))
-		error_arg();
 	return (sign * result);
 }
 
